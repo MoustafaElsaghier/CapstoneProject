@@ -1,5 +1,6 @@
-package elsaghier.developer.com.capstoneproject;
+package elsaghier.developer.com.capstoneproject.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +13,7 @@ import com.google.android.gms.ads.MobileAds;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import elsaghier.developer.com.capstoneproject.R;
 
 public class HomeActivity extends AppCompatActivity {
     private AdView mAdView;
@@ -60,14 +62,14 @@ public class HomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.restaurant_layout)
     void openRestaurants() {
-//        Intent intent = new Intent(HomeActivity.this, RestaurantActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(HomeActivity.this, RestaurantActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.hotels_layout)
     void openHotels() {
-//        Intent intent = new Intent(HomeActivity.this, HotelsActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(HomeActivity.this, HotelsActivity.class);
+        startActivity(intent);
     }
 
 }

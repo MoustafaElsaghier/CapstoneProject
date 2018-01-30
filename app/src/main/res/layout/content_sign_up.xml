@@ -7,7 +7,7 @@
     android:background="@drawable/gradient_bg"
     android:focusableInTouchMode="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="elsaghier.developer.com.capstoneproject.SignUpActivity"
+    tools:context="elsaghier.developer.com.capstoneproject.Activities.SignUpActivity"
     tools:showIn="@layout/activity_sign_up">
 
     <ImageView

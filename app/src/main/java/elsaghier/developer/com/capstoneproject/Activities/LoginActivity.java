@@ -1,4 +1,4 @@
-package elsaghier.developer.com.capstoneproject;
+package elsaghier.developer.com.capstoneproject.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -26,6 +26,7 @@ import com.google.firebase.auth.FirebaseUser;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import elsaghier.developer.com.capstoneproject.R;
 
 
 public class LoginActivity extends AppCompatActivity {

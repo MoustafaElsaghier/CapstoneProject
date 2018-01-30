@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="elsaghier.developer.com.capstoneproject.HomeActivity"
+    tools:context="elsaghier.developer.com.capstoneproject.Activities.HomeActivity"
     tools:showIn="@layout/activity_home">
     <ImageView
         android:id="@+id/imageView"
