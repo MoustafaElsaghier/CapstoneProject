@@ -55,6 +55,8 @@ public class RestaurantActivityFragment extends Fragment {
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        final boolean isTablet = getResources().getBoolean(R.bool.isTab);
+
         layoutManager = new LinearLayoutManager(getContext());
         hotelsRecycler.setLayoutManager(layoutManager);
         anInterface = ApiClient.getClient("https://developers.zomato.com/api/v2.1/")
@@ -65,7 +67,9 @@ public class RestaurantActivityFragment extends Fragment {
             @Override
             public void onResponse(@NonNull Call<RestaurantResponse> call, @NonNull Response<RestaurantResponse> response) {
                 hideProgressDialog();
-                adapter = new RestaurantAdapter(response.body().getRestaurants(), getContext());
+
+
+                adapter = new RestaurantAdapter(response.body().getRestaurants(), getContext(),isTablet);
                 hotelsRecycler.setAdapter(adapter);
             }
 

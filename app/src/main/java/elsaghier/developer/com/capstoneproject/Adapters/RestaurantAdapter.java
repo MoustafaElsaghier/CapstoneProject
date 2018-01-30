@@ -2,6 +2,7 @@ package elsaghier.developer.com.capstoneproject.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import elsaghier.developer.com.capstoneproject.Activities.RestaurantsDetailsActivity;
+import elsaghier.developer.com.capstoneproject.Fragments.RestaurantsDetailsActivityFragment;
 import elsaghier.developer.com.capstoneproject.Models.RestaurantModel;
 import elsaghier.developer.com.capstoneproject.Models.RestaurantResponse;
 import elsaghier.developer.com.capstoneproject.R;
@@ -29,10 +31,12 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
 
     private List<RestaurantResponse.RestRes> mData;
     private Context mContext;
+    private boolean isTablet;
 
-    public RestaurantAdapter(List<RestaurantResponse.RestRes> data, Context mContext) {
-        this.mData = data;
+    public RestaurantAdapter(List<RestaurantResponse.RestRes> mData, Context mContext, boolean isTablet) {
+        this.mData = mData;
         this.mContext = mContext;
+        this.isTablet = isTablet;
     }
 
     @Override
@@ -54,9 +58,19 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(mContext, RestaurantsDetailsActivity.class);
-                i.putExtra("rest_item", restaurant);
-                mContext.startActivity(i);
+
+                if (isTablet) {
+                    RestaurantsDetailsActivityFragment fragment = new RestaurantsDetailsActivityFragment();
+
+                    ((AppCompatActivity) mContext).getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.Rpane_2, fragment)
+                            .commit();
+                } else {
+                    Intent i = new Intent(mContext, RestaurantsDetailsActivity.class);
+                    i.putExtra("rest_item", restaurant);
+                    mContext.startActivity(i);
+                }
             }
         });
     }
