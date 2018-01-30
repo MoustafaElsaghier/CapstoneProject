@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -70,6 +71,18 @@ public class SignUpActivity extends AppCompatActivity {
                 userConfirmPassword.setError("Password Conformation can't be empty");
             showErrorDialog(this, "Valid error Fields", "please fix error in fields");
         }
+    }
+
+    boolean userNameValidation(String email) {
+        isValidEmail = (!TextUtils.isEmpty(email) &&
+                Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        return isValidEmail;
+
+    }
+
+    boolean passwordValidation(String password) {
+        isValidPassword = (!TextUtils.isEmpty(password) && (password.length() >= 6));
+        return isValidPassword;
     }
 
     void showErrorDialog(Context context, String dialogTittle, String dialogMessage) {
