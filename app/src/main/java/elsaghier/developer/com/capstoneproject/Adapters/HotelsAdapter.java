@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import elsaghier.developer.com.capstoneproject.Activities.HotelDetailsActivity;
 import elsaghier.developer.com.capstoneproject.Models.HotelModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,7 +32,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelHolde
 
     @Override
     public HotelsAdapter.HotelHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyc_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.hotel_recyc_item, parent, false);
         return new HotelsAdapter.HotelHolder(view);
     }
 

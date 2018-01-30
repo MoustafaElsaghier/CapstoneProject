@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import elsaghier.developer.com.capstoneproject.Activities.RestaurantsDetailsActivity;
 import elsaghier.developer.com.capstoneproject.Models.RestaurantModel;
 import elsaghier.developer.com.capstoneproject.Models.RestaurantResponse;
 import butterknife.BindView;
