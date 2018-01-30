@@ -10,7 +10,9 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Patterns;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -46,6 +49,72 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ButterKnife.bind(this);
+        userEmail.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (userNameValidation(editable.toString())) {
+                    userEmail.setError("");
+                } else {
+                    if (editable.toString().length() == 0)
+                        userEmail.setError("Email can't be empty");
+                    else
+                        userEmail.setError("inValid Email");
+                }
+            }
+        });
+        userPassword.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (passwordValidation(editable.toString())) {
+                    userPassword.setError("");
+                } else {
+                    if (editable.toString().length() == 0)
+                        userPassword.setError("Email can't be empty");
+                    else
+                        userPassword.setError("inValid Email");
+                }
+            }
+        });
+        userConfirmPassword.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String pass = userPassword.getEditText().getText().toString();
+                if (matchedPasswords(editable.toString(), pass)) {
+                    userConfirmPassword.setError("");
+                } else {
+                    userConfirmPassword.setError("Password does not match the confirm password");
+                }
+            }
+        });
+
+        // fire base
+        mAuth = FirebaseAuth.getInstance();
 
     }
 
@@ -77,12 +146,16 @@ public class SignUpActivity extends AppCompatActivity {
         isValidEmail = (!TextUtils.isEmpty(email) &&
                 Patterns.EMAIL_ADDRESS.matcher(email).matches());
         return isValidEmail;
-
     }
 
     boolean passwordValidation(String password) {
         isValidPassword = (!TextUtils.isEmpty(password) && (password.length() >= 6));
         return isValidPassword;
+    }
+
+
+    boolean matchedPasswords(String pass1, String pass2) {
+        return pass1.equals(pass2);
     }
 
     void showErrorDialog(Context context, String dialogTittle, String dialogMessage) {
@@ -124,6 +197,7 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                 });
     }
+
     ProgressDialog mProgressDialog;
 
     void showProgressDialog(Context context, String tittle, String message) {
