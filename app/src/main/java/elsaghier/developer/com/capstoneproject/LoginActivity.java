@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-//        updateUI(currentUser);
+
     }
 
     @OnClick(R.id.signUp_TV)
