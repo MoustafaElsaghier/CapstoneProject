@@ -4,17 +4,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg"
+    android:focusableInTouchMode="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="elsaghier.developer.com.capstoneproject.LoginActivity"
+    tools:context="elsaghier.example.com.capstonestage.Activities.LoginActivity"
     tools:showIn="@layout/activity_login">
+
+    <ImageView
+        android:id="@+id/roundedImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/logo_of_application"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/TIL_name"
+        android:layout_width="@dimen/size_in_dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/size_in_dp_16"
+        android:layout_marginStart="@dimen/size_in_dp_16"
+        android:layout_marginTop="@dimen/size_in_dp_32"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roundedImageView">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:inputType="text|textCapWords"
+            android:maxLength="20"
+            android:padding="@dimen/size_in_dp_12"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/TIL_pass"
+        android:layout_width="@dimen/size_in_dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/size_in_dp_16"
+        android:layout_marginStart="@dimen/size_in_dp_16"
+        android:layout_marginTop="24dp"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TIL_name">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_in_dp_16"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:padding="@dimen/size_in_dp_12"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/BTN_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/size_in_dp_8"
+        android:layout_marginStart="@dimen/size_in_dp_8"
+        android:layout_marginTop="@dimen/size_in_dp_16"
+        android:background="@drawable/rounded_btn"
+        android:minWidth="@dimen/size_in_dp_96"
+        android:paddingEnd="@dimen/size_in_dp_32"
+        android:paddingStart="@dimen/size_in_dp_32"
+        android:text="@string/login_txt"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/size_in_sp_18"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/TIL_pass"
+        app:layout_constraintStart_toStartOf="@+id/TIL_pass"
+        app:layout_constraintTop_toBottomOf="@+id/TIL_pass" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/not_user"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/signUp_TV"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="@+id/BTN_login"
+        app:layout_constraintTop_toTopOf="@+id/signUp_TV" />
+
+    <TextView
+        android:id="@+id/signUp_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/sign_up"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintStart_toStartOf="@+id/BTN_login"
+        app:layout_constraintTop_toBottomOf="@+id/BTN_login" />
 
 </android.support.constraint.ConstraintLayout>
