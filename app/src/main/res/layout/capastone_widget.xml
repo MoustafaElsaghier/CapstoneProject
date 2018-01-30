@@ -1,21 +1,56 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#09C"
     android:padding="@dimen/widget_margin">
 
+
     <TextView
-        android:id="@+id/appwidget_text"
+        android:id="@+id/widget_hotel_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="8dp"
+        android:layout_marginBottom="4dp"
         android:background="#09C"
-        android:contentDescription="@string/appwidget_text"
-        android:text="@string/appwidget_text"
-        android:textColor="#ffffff"
+        android:contentDescription="@string/hotel_name"
+        android:text="@string/hotel_name"
+        android:textColor="#fff"
         android:textSize="24sp"
         android:textStyle="bold|italic" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/appwidget_hotelAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size_in_dp_16"
+        android:background="#09C"
+        android:contentDescription="@string/appwidget_text"
+        android:text="@string/appwidget_text"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/widget_restaurant_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="#09C"
+        android:contentDescription="@string/restaurant_name"
+        android:text="@string/restaurant_name"
+        android:textColor="#fff"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/appwidget_restaurantAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#09C"
+        android:contentDescription="@string/appwidget_text"
+        android:text="@string/appwidget_text"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
+
+</LinearLayout>
