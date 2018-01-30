@@ -31,13 +31,11 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
     @BindView(R.id.restaurant_detail_name)
     TextView mName;
     @BindView(R.id.rest_detail_location)
-    TextView mLocation;
-
+    TextView mAddress;
     @BindView(R.id.item_price)
     TextView mItemPrice;
-
     @BindView(R.id.rest_detail_img)
-    ImageView imgImageView;
+    ImageView restaurantImg;
 
     public RestaurantsDetailsActivityFragment() {
     }
@@ -58,19 +56,21 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
 
         mName.setText(restaurantModel.getName());
 
+        mAddress.setText(restaurantModel.getLocation().getAddress());
+
         String itemPrice = String.format("%s %s", restaurantModel.getPriceRange(), restaurantModel.getCurrency());
         mItemPrice.setText(itemPrice);
 
-        mLocation.setText(restaurantModel.getLocation().getAddress());
-        Glide.with(this).load(restaurantModel.getFeaturedImage()).into(imgImageView);
+        if (restaurantModel.getFeaturedImage().isEmpty())
+            restaurantImg.setImageResource(R.drawable.restauranticon);
+        else
+            Glide.with(this).load(restaurantModel.getFeaturedImage()).into(restaurantImg);
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         double lat = Double.parseDouble(restaurantModel.getLocation().getLatitude());
         double lng = Double.parseDouble(restaurantModel.getLocation().getLongitude());
-
-        restaurantModel.getLocation().getAddress();
 
         LatLng restLocation = new LatLng(lat, lng);
 

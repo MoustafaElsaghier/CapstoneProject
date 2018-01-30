@@ -10,7 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,7 +66,6 @@ public class RestaurantActivityFragment extends Fragment {
             public void onResponse(@NonNull Call<RestaurantResponse> call, @NonNull Response<RestaurantResponse> response) {
                 hideProgressDialog();
                 adapter = new RestaurantAdapter(response.body().getRestaurants(), getContext());
-                Toast.makeText(getContext(), "HHH" + response.body().getRestaurants().size(), Toast.LENGTH_SHORT).show();
                 hotelsRecycler.setAdapter(adapter);
             }
 

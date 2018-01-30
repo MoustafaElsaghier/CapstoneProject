@@ -3,11 +3,13 @@ package elsaghier.developer.com.capstoneproject.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by ELSaghier on 1/25/2018.
  */
 
-public class RestaurantLocation {
+public class RestaurantLocation implements Serializable {
 
     @SerializedName("address")
     @Expose

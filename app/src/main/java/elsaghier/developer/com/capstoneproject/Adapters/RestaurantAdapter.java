@@ -13,11 +13,11 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import elsaghier.developer.com.capstoneproject.Activities.RestaurantsDetailsActivity;
 import elsaghier.developer.com.capstoneproject.Models.RestaurantModel;
 import elsaghier.developer.com.capstoneproject.Models.RestaurantResponse;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import elsaghier.developer.com.capstoneproject.R;
 
 /**
@@ -46,10 +46,10 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
         final RestaurantModel restaurant = mData.get(position).getList();
         holder.setName(restaurant.getName());
         holder.setAddress(restaurant.getLocation().getAddress());
-        if (restaurant.getFeaturedImage().isEmpty())
-            holder.restaurantImg.setImageResource(R.mipmap.ic_launcher);
+        if (restaurant.getThumbImage().isEmpty())
+            holder.restaurantImg.setImageResource(R.drawable.restauranticon);
         else
-            Glide.with(mContext).load(restaurant.getFeaturedImage()).into(holder.restaurantImg);
+            Glide.with(mContext).load(restaurant.getThumbImage()).into(holder.restaurantImg);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +80,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
 
         RestaurantHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
         }
 
         void setName(String name) {

@@ -11,6 +11,17 @@ import java.io.Serializable;
 
 public class RestaurantModel implements Serializable {
 
+    public String getThumbImage() {
+        return thumbImage;
+    }
+
+    public void setThumbImage(String thumbImage) {
+        this.thumbImage = thumbImage;
+    }
+
+    @SerializedName("thumb")
+    @Expose
+    private String thumbImage;
     @SerializedName("name")
     @Expose
     private String name;
