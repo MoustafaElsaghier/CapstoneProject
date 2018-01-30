@@ -1,7 +1,5 @@
 package elsaghier.developer.com.capstoneproject.Activities;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -27,6 +25,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import elsaghier.developer.com.capstoneproject.R;
+
+import static elsaghier.developer.com.capstoneproject.Models.ProgressDialogClass.hideProgressDialog;
+import static elsaghier.developer.com.capstoneproject.Models.ProgressDialogClass.showProgressDialog;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -172,22 +173,6 @@ public class LoginActivity extends AppCompatActivity {
     void emptyFields() {
         userEmail.getEditText().setText("");
         userPassword.getEditText().setText("");
-    }
-
-    ProgressDialog mProgressDialog;
-
-    void showProgressDialog(Context context, String tittle, String message) {
-        mProgressDialog = new ProgressDialog(context);
-        mProgressDialog.setTitle(tittle);
-        mProgressDialog.setMessage(message);
-        mProgressDialog.show();
-    }
-
-    void hideProgressDialog() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
-            mProgressDialog = null;
-        }
     }
 
 }

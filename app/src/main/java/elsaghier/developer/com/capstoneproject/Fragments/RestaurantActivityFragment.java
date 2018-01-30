@@ -1,8 +1,7 @@
 package elsaghier.developer.com.capstoneproject.Fragments;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,6 +21,9 @@ import elsaghier.developer.com.capstoneproject.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static elsaghier.developer.com.capstoneproject.Models.ProgressDialogClass.hideProgressDialog;
+import static elsaghier.developer.com.capstoneproject.Models.ProgressDialogClass.showProgressDialog;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -61,7 +63,7 @@ public class RestaurantActivityFragment extends Fragment {
                 "55a1d18014dd0c0dac534c02598a3368");
         call.enqueue(new Callback<RestaurantResponse>() {
             @Override
-            public void onResponse(Call<RestaurantResponse> call, Response<RestaurantResponse> response) {
+            public void onResponse(@NonNull Call<RestaurantResponse> call, @NonNull Response<RestaurantResponse> response) {
                 hideProgressDialog();
                 adapter = new RestaurantAdapter(response.body().getRestaurants(), getContext());
                 Toast.makeText(getContext(), "HHH" + response.body().getRestaurants().size(), Toast.LENGTH_SHORT).show();
@@ -69,7 +71,7 @@ public class RestaurantActivityFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<RestaurantResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<RestaurantResponse> call, @NonNull Throwable t) {
                 hideProgressDialog();
                 System.out.println("Error : " + t.getMessage());
                 Toast.makeText(getContext(), "Error Please Try again", Toast.LENGTH_SHORT).show();
@@ -78,19 +80,5 @@ public class RestaurantActivityFragment extends Fragment {
 
     }
 
-    ProgressDialog mProgressDialog;
 
-    void showProgressDialog(Context context, String tittle, String message) {
-        mProgressDialog = new ProgressDialog(context);
-        mProgressDialog.setTitle(tittle);
-        mProgressDialog.setMessage(message);
-        mProgressDialog.show();
-    }
-
-    void hideProgressDialog() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
-            mProgressDialog = null;
-        }
-    }
 }
