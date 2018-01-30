@@ -1,4 +1,35 @@
 <resources>
     <string name="app_name">CapstoneProject</string>
     <string name="action_settings">Settings</string>
+    <string name="name_hint">Name</string>
+    <string name="password_hint">Password</string>
+    <string name="login_txt">Login</string>
+
+    <!-- String Array for Navigation Drawer Items -->
+
+    <string name="sign_up">Sign Up</string>
+    <string name="not_user">Not User?</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="password">Password</string>
+    <string name="username">UserName</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="logo_of_application">Logo Of Application</string>
+    <string name="lorem_text">Lorem Text</string>
+    <string name="rating">Rating</string>
+    <string name="image_for_item_in_the_list">Image for item in the List</string>
+    <string name="title_activity_hotels">HotelsActivity</string>
+    <string name="title_activity_restaurant">RestaurantActivity</string>
+    <string name="title_activity_hotel_details">HotelDetailsActivity</string>
+    <string name="title_activity_restaurants_details">Restaurants Details</string>
+    <string name="description">Description</string>
+    <string name="title_activity_home">Home Activity</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="image_for_restaurants_logo">Image for Restaurants Logo</string>
+    <string name="hotels">Hotels</string>
+    <string name="price_range">Price Range</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="hotel_name">Hotel Name</string>
+    <string name="restaurant_name">Restaurant Name</string>
 </resources>

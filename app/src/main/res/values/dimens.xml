@@ -1,3 +1,18 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="size_in_dp_8">8dp</dimen>
+    <dimen name="size_in_dp_24">24dp</dimen>
+    <dimen name="size_in_sp_18">18sp</dimen>
+    <dimen name="size_in_dp_16">16dp</dimen>
+    <dimen name="size_in_dp_96">96dp</dimen>
+    <dimen name="size_in_dp_2">2dp</dimen>
+    <dimen name="size_in_dp_32">32dp</dimen>
+    <dimen name="size_in_dp_0">0dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="size_in_dp_12">12dp</dimen>
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
 </resources>
