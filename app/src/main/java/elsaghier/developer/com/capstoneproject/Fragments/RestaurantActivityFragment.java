@@ -3,6 +3,7 @@ package elsaghier.developer.com.capstoneproject.Fragments;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -52,7 +53,7 @@ public class RestaurantActivityFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         layoutManager = new LinearLayoutManager(getContext());
@@ -74,7 +75,7 @@ public class RestaurantActivityFragment extends Fragment {
             public void onFailure(@NonNull Call<RestaurantResponse> call, @NonNull Throwable t) {
                 hideProgressDialog();
                 System.out.println("Error : " + t.getMessage());
-                Toast.makeText(getContext(), "Error Please Try again", Toast.LENGTH_SHORT).show();
+                Snackbar.make(view, "Error Please Try again",Snackbar.LENGTH_LONG).show();
             }
         });
 

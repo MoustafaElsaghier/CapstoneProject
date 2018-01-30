@@ -13,6 +13,7 @@ public class ProgressDialogClass {
     public static void showProgressDialog(Context context, String tittle, String message) {
         mProgressDialog = new ProgressDialog(context);
         mProgressDialog.setTitle(tittle);
+        mProgressDialog.setCancelable(false);
         mProgressDialog.setMessage(message);
         mProgressDialog.show();
     }
