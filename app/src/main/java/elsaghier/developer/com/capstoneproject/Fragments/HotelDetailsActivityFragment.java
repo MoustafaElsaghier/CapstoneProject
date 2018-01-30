@@ -25,4 +25,5 @@ public class HotelDetailsActivityFragment extends Fragment {
 
         return view;
     }
+
 }
