@@ -1,8 +1,10 @@
-package elsaghier.developer.com.capstoneproject;
+package elsaghier.developer.com.capstoneproject.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
+import elsaghier.developer.com.capstoneproject.R;
 
 public class RestaurantsDetailsActivity extends AppCompatActivity {
 

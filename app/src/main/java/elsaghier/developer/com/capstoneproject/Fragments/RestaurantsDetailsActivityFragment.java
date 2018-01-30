@@ -1,4 +1,4 @@
-package elsaghier.developer.com.capstoneproject;
+package elsaghier.developer.com.capstoneproject.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +15,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 import butterknife.BindView;
 import elsaghier.developer.com.capstoneproject.Models.RestaurantModel;
+import elsaghier.developer.com.capstoneproject.R;
 
 /**
  * A placeholder fragment containing a simple view.
