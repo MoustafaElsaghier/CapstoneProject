@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import elsaghier.developer.com.capstoneproject.Adapters.HotelsAdapter;
 import elsaghier.developer.com.capstoneproject.R;
 
@@ -29,8 +30,13 @@ public class HotelsActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_hotels, container, false);
+        View view = inflater.inflate(R.layout.fragment_hotels, container, false);
+        ButterKnife.bind(this, view);
+
+        return view;
+
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

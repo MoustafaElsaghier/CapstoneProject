@@ -82,7 +82,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelHolde
 
         HotelHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(itemView);
+            ButterKnife.bind(this,itemView);
         }
 
         void setName(String name) {

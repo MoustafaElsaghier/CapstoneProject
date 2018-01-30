@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import elsaghier.developer.com.capstoneproject.Adapters.RestaurantAdapter;
 import elsaghier.developer.com.capstoneproject.ApiWork.ApiClient;
 import elsaghier.developer.com.capstoneproject.ApiWork.RestaurantInterface;
@@ -40,7 +41,9 @@ public class RestaurantActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_restaurant, container, false);
+        View view = inflater.inflate(R.layout.fragment_restaurant, container, false);
+        ButterKnife.bind(this, view);
+        return view;
     }
 
     @Override

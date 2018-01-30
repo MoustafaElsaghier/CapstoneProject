@@ -14,6 +14,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import elsaghier.developer.com.capstoneproject.Models.RestaurantModel;
 import elsaghier.developer.com.capstoneproject.R;
 
@@ -40,7 +41,10 @@ public class RestaurantsDetailsActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_restaurants_details, container, false);
+        View view = inflater.inflate(R.layout.fragment_restaurants_details, container, false);
+        ButterKnife.bind(this, view);
+
+        return view;
     }
 
     @Override
