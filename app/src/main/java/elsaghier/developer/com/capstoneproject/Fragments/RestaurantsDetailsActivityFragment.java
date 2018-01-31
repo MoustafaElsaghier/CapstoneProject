@@ -3,7 +3,6 @@ package elsaghier.developer.com.capstoneproject.Fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,13 +38,15 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
     @BindView(R.id.rest_detail_img)
     ImageView restaurantImg;
 
-    public RestaurantsDetailsActivityFragment() {
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_restaurants_details, container, false);
+        SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
         ButterKnife.bind(this, view);
         return view;
     }
@@ -53,12 +54,14 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        restaurantModel = (RestaurantModel) getActivity().getIntent().getSerializableExtra("rest_item");
+//        restaurantModel = (RestaurantModel) getActivity().getIntent().getSerializableExtra("rest_item");
+        restaurantModel = (RestaurantModel) getArguments().getSerializable("rest_item");
 
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        SupportMapFragment fragment = (SupportMapFragment) fm.findFragmentById(R.id.map);
 
-        fragment.getMapAsync(this);
+//        SupportMapFragment fragment = (SupportMapFragment) getActivity()
+//                .getSupportFragmentManager().findFragmentById(R.id.map);
+//
+//        fragment.getMapAsync(this);
 
 
         mName.setText(restaurantModel.getName());
@@ -81,7 +84,7 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
 
         LatLng restLocation = new LatLng(lat, lng);
         Toast.makeText(getContext(), "Map", Toast.LENGTH_SHORT).show();
-        // Add a marker in Sydney and move the camera
+
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(restLocation, 18.0f));
         googleMap.addMarker(new MarkerOptions()
                 .title(restaurantModel.getName())
@@ -89,10 +92,5 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
                 .position(restLocation));
 
     }
-   static String x;
-    static class ss{
-         ss(){
-             System.out.println(x);
-        }
-    }
+
 }

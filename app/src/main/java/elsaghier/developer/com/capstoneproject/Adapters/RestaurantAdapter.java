@@ -2,6 +2,7 @@ package elsaghier.developer.com.capstoneproject.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -62,6 +63,9 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
                 if (isTablet) {
                     RestaurantsDetailsActivityFragment fragment = new RestaurantsDetailsActivityFragment();
 
+                    Bundle b = new Bundle();
+                    b.putSerializable("rest_item", restaurant);
+                    fragment.setArguments(b);
                     ((AppCompatActivity) mContext).getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.Rpane_2, fragment)

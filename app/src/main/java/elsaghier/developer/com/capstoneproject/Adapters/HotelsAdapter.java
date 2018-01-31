@@ -40,7 +40,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelHolde
     public void onBindViewHolder(HotelsAdapter.HotelHolder holder, int position) {
 
         final HotelModel restaurant = mData.get(position);
-        //TODO:: implement Hotel items and pass them to holder
+          //TODO:: implement Hotel items and pass them to holder
        /*
         holder.setName(restaurant.getName());
         holder.setAddress(restaurant.getLocation().getAddress());
