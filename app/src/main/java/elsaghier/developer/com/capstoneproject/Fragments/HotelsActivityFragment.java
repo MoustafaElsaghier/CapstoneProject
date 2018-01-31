@@ -32,6 +32,8 @@ public class HotelsActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_hotels, container, false);
         ButterKnife.bind(this, view);
+        final boolean isTablet = getResources().getBoolean(R.bool.isTab);
+
 
         return view;
 

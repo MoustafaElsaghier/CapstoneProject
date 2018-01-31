@@ -2,6 +2,8 @@ package elsaghier.developer.com.capstoneproject.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +13,11 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import elsaghier.developer.com.capstoneproject.Activities.HotelDetailsActivity;
-import elsaghier.developer.com.capstoneproject.Models.HotelModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import elsaghier.developer.com.capstoneproject.Activities.HotelDetailsActivity;
+import elsaghier.developer.com.capstoneproject.Fragments.HotelDetailsActivityFragment;
+import elsaghier.developer.com.capstoneproject.Models.HotelModel;
 import elsaghier.developer.com.capstoneproject.R;
 
 /**
@@ -24,10 +27,12 @@ import elsaghier.developer.com.capstoneproject.R;
 public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelHolder> {
     private List<HotelModel> mData;
     private Context mContext;
+    boolean isTablet;
 
-    public HotelsAdapter(List<HotelModel> data, Context mContext) {
-        this.mData = data;
+    public HotelsAdapter(List<HotelModel> mData, Context mContext, boolean isTablet) {
+        this.mData = mData;
         this.mContext = mContext;
+        this.isTablet = isTablet;
     }
 
     @Override
@@ -39,8 +44,8 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelHolde
     @Override
     public void onBindViewHolder(HotelsAdapter.HotelHolder holder, int position) {
 
-        final HotelModel restaurant = mData.get(position);
-          //TODO:: implement Hotel items and pass them to holder
+        final HotelModel hotelModel = mData.get(position);
+        //TODO:: implement Hotel items and pass them to holder
        /*
         holder.setName(restaurant.getName());
         holder.setAddress(restaurant.getLocation().getAddress());
@@ -54,9 +59,22 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelHolde
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(mContext, HotelDetailsActivity.class);
-                i.putExtra("rest_item", restaurant);
-                mContext.startActivity(i);
+                if (isTablet) {
+                    HotelDetailsActivityFragment fragment = new HotelDetailsActivityFragment();
+
+                    Bundle b = new Bundle();
+                    b.putSerializable("hotel_item", hotelModel);
+                    fragment.setArguments(b);
+                    ((AppCompatActivity) mContext).getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.Rpane_2, fragment)
+                            .commit();
+                } else {
+                    Intent i = new Intent(mContext, HotelDetailsActivity.class);
+                    i.putExtra("hotel_item", hotelModel);
+                    mContext.startActivity(i);
+                }
+
             }
         });
     }
@@ -82,7 +100,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelHolde
 
         HotelHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
         }
 
         void setName(String name) {
