@@ -37,6 +37,7 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
     TextView mItemPrice;
     @BindView(R.id.rest_detail_img)
     ImageView restaurantImg;
+    public static boolean isTab;
 
 
     @Override
@@ -54,15 +55,10 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        restaurantModel = (RestaurantModel) getActivity().getIntent().getSerializableExtra("rest_item");
-        restaurantModel = (RestaurantModel) getArguments().getSerializable("rest_item");
-
-
-//        SupportMapFragment fragment = (SupportMapFragment) getActivity()
-//                .getSupportFragmentManager().findFragmentById(R.id.map);
-//
-//        fragment.getMapAsync(this);
-
+        if (isTab)
+            restaurantModel = (RestaurantModel) getArguments().getSerializable("rest_item");
+        else
+            restaurantModel = (RestaurantModel) getActivity().getIntent().getSerializableExtra("rest_item");
 
         mName.setText(restaurantModel.getName());
 
