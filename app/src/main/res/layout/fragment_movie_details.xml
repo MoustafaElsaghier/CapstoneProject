@@ -73,7 +73,6 @@
             tools:layout_constraintTop_creator="1" />
 
         <TextView
-            android:id="@+id/filmYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -102,7 +101,6 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <TextView
-            android:id="@+id/filmRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -130,7 +128,6 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
-            android:id="@+id/filmGenre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -177,7 +174,6 @@
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
         <TextView
-            android:id="@+id/filmOverView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"

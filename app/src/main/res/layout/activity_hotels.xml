@@ -7,7 +7,6 @@
     tools:context="elsaghier.developer.com.capstoneproject.Activities.MoviesActivity">
 
     <LinearLayout
-        android:id="@+id/itemDetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

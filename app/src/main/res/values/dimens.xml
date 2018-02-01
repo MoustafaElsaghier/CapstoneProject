@@ -1,5 +1,4 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
     <dimen name="size_in_dp_8">8dp</dimen>
     <dimen name="size_in_dp_24">24dp</dimen>
     <dimen name="size_in_sp_18">18sp</dimen>
