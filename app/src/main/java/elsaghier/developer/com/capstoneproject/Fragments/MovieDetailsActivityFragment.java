@@ -66,6 +66,5 @@ public class MovieDetailsActivityFragment extends Fragment {
         filmOverView.setText(model.getOverview());
         Glide.with(this).load("http://image.tmdb.org/t/p/w185" + model.getBackdropPath()).into(backDropPath);
 
-
     }
 }

@@ -19,6 +19,7 @@ import butterknife.ButterKnife;
 import elsaghier.developer.com.capstoneproject.Activities.MoviesDetailsActivity;
 import elsaghier.developer.com.capstoneproject.Fragments.MovieDetailsActivityFragment;
 import elsaghier.developer.com.capstoneproject.Models.Film;
+import elsaghier.developer.com.capstoneproject.Models.SharedPreferenceFiles;
 import elsaghier.developer.com.capstoneproject.R;
 
 /**
@@ -91,7 +92,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
         }
 
         void setPoster(String path) {
-            Glide.with(mContext).load("http://image.tmdb.org/t/p/w185" + path).into(moivePoster);
+            Glide.with(mContext).load("http://image.tmdb.org/t/p/w185" + path)
+                    .centerCrop()
+                    .error(R.drawable.ic_movie)
+                    .into(moivePoster);
         }
     }
 }

@@ -27,14 +27,13 @@
     <string name="restaurant_name">Restaurant Name</string>
 
     <string name="rating">Rating</string>
-    <string name="genre">Genre</string>
     <string name="synopsis">Synopsis</string>
 
     <string name="back_drop_image_for_film">back drop image for film</string>
     <string name="poster_image_for_film">Poster Image for Film</string>
-    <string name="plain_text">Plain Text</string>
     <string name="release_date">Release Date</string>
     <string name="to_do">To Do List</string>
     <string name="title_activity_to_do">ToDoActivity</string>
+    <string name="preference_file_key">sharefPrefValues</string>
 
 </resources>

@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             android:layout_marginTop="8dp"
-            android:text="@string/plain_text"
+            android:text="@string/lorem_text"
             android:textAllCaps="false"
             android:textColor="@color/movieTittle"
             android:textSize="24sp"
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:fontFamily="sans-serif"
-            android:text="@string/plain_text"
+            android:text="@string/lorem_text"
             android:textSize="18sp"
 
             android:textStyle="bold"
@@ -108,7 +108,7 @@
 
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif"
-            android:text="@string/plain_text"
+            android:text="@string/lorem_text"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/filmDate" />
@@ -143,9 +143,9 @@
         <TextView
             android:id="@+id/film_over_view"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="15dp"
             android:layout_marginTop="8dp"
-            android:text="@string/plain_text"
+            android:text="@string/lorem_text"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="@+id/textView"
             app:layout_constraintRight_toRightOf="parent"

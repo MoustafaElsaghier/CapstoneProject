@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
@@ -14,7 +15,6 @@ import com.google.android.gms.ads.MobileAds;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import elsaghier.developer.com.capstoneproject.R;
-import elsaghier.developer.com.capstoneproject.ToDoActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private AdView mAdView;
@@ -34,21 +34,24 @@ public class HomeActivity extends AppCompatActivity {
         mAdView.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
+                mAdView.setVisibility(View.VISIBLE);
                 Toast.makeText(HomeActivity.this, "Ad Loaded Successful", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
+                mAdView.setVisibility(View.GONE);
                 Toast.makeText(HomeActivity.this, "Failed To Load Ad", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @OnClick(R.id.to_do_item)
-    void openToDo(){
+    void openToDo() {
         Intent intent = new Intent(HomeActivity.this, ToDoActivity.class);
         startActivity(intent);
     }
+
     @OnClick(R.id.restaurant_layout)
     void openRestaurants() {
         Intent intent = new Intent(HomeActivity.this, RestaurantActivity.class);

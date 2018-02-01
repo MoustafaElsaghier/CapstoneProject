@@ -25,7 +25,7 @@
         android:layout_marginBottom="@dimen/size_in_dp_16"
         android:background="#09C"
         android:contentDescription="@string/appwidget_text"
-        android:text="@string/appwidget_text"
+        android:text="@string/lorem_text"
         android:textColor="#fff"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:background="#09C"
         android:contentDescription="@string/appwidget_text"
-        android:text="@string/appwidget_text"
+        android:text="@string/lorem_text"
         android:textColor="#fff"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
