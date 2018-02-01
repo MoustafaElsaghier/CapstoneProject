@@ -96,7 +96,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
         void setPoster(String path) {
             Glide.with(mContext).load("http://image.tmdb.org/t/p/w185" + path)
                     .centerCrop()
-                    .error(R.drawable.ic_movie)
                     .into(moivePoster);
         }
     }

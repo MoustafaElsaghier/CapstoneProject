@@ -35,5 +35,6 @@
     <string name="to_do">To Do List</string>
     <string name="title_activity_to_do">ToDoActivity</string>
     <string name="preference_file_key">sharefPrefValues</string>
+    <string name="movie_name">Movie Name</string>
 
 </resources>

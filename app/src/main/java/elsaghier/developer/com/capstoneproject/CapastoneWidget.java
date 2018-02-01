@@ -5,26 +5,25 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.widget.RemoteViews;
 
+import elsaghier.developer.com.capstoneproject.Models.SharedPreferenceFiles;
+
 /**
  * Implementation of App Widget functionality.
  */
 public class CapastoneWidget extends AppWidgetProvider {
-
-    static String HOTEL_NAME = "Arafa";
-    static String HOTEL_ADDRESS = "hotel address";
-    static String RESTAURANT_NAME = "Apples's";
-    static String RESTAURANT_ADDRESS = "ADDRESS OF Apples's";
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.capastone_widget);
-        views.setTextViewText(R.id.appwidget_hotelAddress, HOTEL_ADDRESS);
-        views.setTextViewText(R.id.widget_hotel_name, HOTEL_NAME);
+        views.setTextViewText(R.id.appwidget_movieName,
+                SharedPreferenceFiles.
+                        getFromSharedPreference(context, "film_name"));
 
-        views.setTextViewText(R.id.appwidget_restaurantAddress, RESTAURANT_ADDRESS);
-        views.setTextViewText(R.id.widget_restaurant_name, RESTAURANT_NAME);
+        views.setTextViewText(R.id.appwidget_restaurantName,
+                SharedPreferenceFiles.
+                        getFromSharedPreference(context, "rest_name"));
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
@@ -47,5 +46,6 @@ public class CapastoneWidget extends AppWidgetProvider {
     public void onDisabled(Context context) {
         // Enter relevant functionality for when the last widget is disabled
     }
+
 }
 

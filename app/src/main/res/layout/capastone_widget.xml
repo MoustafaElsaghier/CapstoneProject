@@ -1,37 +1,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#09C"
-    android:padding="@dimen/widget_margin">
+    android:orientation="vertical"
+    android:padding="@dimen/size_in_dp_8">
 
 
     <TextView
-        android:id="@+id/widget_hotel_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:background="#09C"
-        android:contentDescription="@string/hotel_name"
+        android:contentDescription="@string/movie_name"
         android:text="@string/hotel_name"
         android:textColor="#fff"
         android:textSize="24sp"
         android:textStyle="bold|italic" />
 
     <TextView
-        android:id="@+id/appwidget_hotelAddress"
+        android:id="@+id/appwidget_movieName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/size_in_dp_16"
         android:background="#09C"
-        android:contentDescription="@string/appwidget_text"
+        android:contentDescription="@string/lorem_text"
         android:text="@string/lorem_text"
         android:textColor="#fff"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
     <TextView
-        android:id="@+id/widget_restaurant_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
@@ -43,11 +41,11 @@
         android:textStyle="bold|italic" />
 
     <TextView
-        android:id="@+id/appwidget_restaurantAddress"
+        android:id="@+id/appwidget_restaurantName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#09C"
-        android:contentDescription="@string/appwidget_text"
+        android:contentDescription="@string/lorem_text"
         android:text="@string/lorem_text"
         android:textColor="#fff"
         android:textSize="18sp"
