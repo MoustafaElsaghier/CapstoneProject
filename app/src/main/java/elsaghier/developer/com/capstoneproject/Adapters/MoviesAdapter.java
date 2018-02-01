@@ -46,7 +46,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
     public void onBindViewHolder(MoviesAdapter.HotelHolder holder, int position) {
 
         final Film filmModel = mData.get(position);
-        //TODO:: implement Hotel items and pass them to holder
         holder.setPoster(filmModel.getPosterPath());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
