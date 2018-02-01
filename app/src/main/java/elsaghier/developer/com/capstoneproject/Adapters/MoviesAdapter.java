@@ -9,7 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
 
     @Override
     public MoviesAdapter.HotelHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.hotel_recyc_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_recyc_item, parent, false);
         return new MoviesAdapter.HotelHolder(view);
     }
 
@@ -46,23 +47,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
 
         final Film filmModel = mData.get(position);
         //TODO:: implement Hotel items and pass them to holder
-       /*
-        holder.setName(restaurant.getName());
-        holder.setAddress(restaurant.getLocation().getAddress());
-        holder.setRating(restaurant.getAverageCostForTwo() + " " + restaurant.getCurrency());
-
-        if (restaurant.getFeaturedImage().isEmpty())
-            holder.restaurantImg.setImageResource(R.mipmap.ic_launcher);
-        else
-            Glide.with(mContext).load(restaurant.getFeaturedImage()).into(holder.restaurantImg);
-*/
+        holder.setPoster(filmModel.getPosterPath());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MovieDetailsActivityFragment.isTab = isTablet;
                 if (isTablet) {
-                    MovieDetailsActivityFragment fragment = new MovieDetailsActivityFragment();
 
+                    MovieDetailsActivityFragment fragment = new MovieDetailsActivityFragment();
                     Bundle b = new Bundle();
                     b.putSerializable("hotel_item", filmModel);
                     fragment.setArguments(b);
@@ -71,6 +63,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
                             .replace(R.id.Rpane_2, fragment)
                             .commit();
                 } else {
+
                     Intent i = new Intent(mContext, MoviesDetailsActivity.class);
                     i.putExtra("hotel_item", filmModel);
                     mContext.startActivity(i);
@@ -90,31 +83,16 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
 
     class HotelHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.item_img)
-        ImageView restaurantImg;
-        @BindView(R.id.item_name)
-        TextView restaurantName;
-        @BindView(R.id.iteem_address)
-        TextView restaurantAddress;
-        @BindView(R.id.item_price)
-        TextView restaurantPriceRange;
+        @BindView(R.id.poster_img)
+        ImageView moivePoster;
 
         HotelHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
 
-        void setName(String name) {
-            restaurantName.setText(name);
+        void setPoster(String path) {
+            Glide.with(mContext).load("http://image.tmdb.org/t/p/w185" + path).into(moivePoster);
         }
-
-        void setAddress(String address) {
-            restaurantAddress.setText(address);
-        }
-
-        void setRating(String rating) {
-            restaurantPriceRange.setText(rating);
-        }
-
     }
 }

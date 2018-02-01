@@ -26,10 +26,11 @@
     <string name="title_activity_home">Home Activity</string>
     <string name="restaurants">Restaurants</string>
     <string name="image_for_restaurants_logo">Image for Restaurants Logo</string>
-    <string name="hotels">Hotels</string>
+    <string name="movies">Movies</string>
     <string name="price_range">Price Range For 2 pieces </string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
     <string name="hotel_name">Hotel Name</string>
     <string name="restaurant_name">Restaurant Name</string>
+    <string name="poster_image_for_film">Poster Image for Film</string>
 </resources>

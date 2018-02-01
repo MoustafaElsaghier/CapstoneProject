@@ -43,7 +43,7 @@
         android:layout_marginTop="16dp"
         android:drawableTop="@drawable/hotelicon"
         android:gravity="center"
-        android:text="@string/hotels"
+        android:text="@string/movies"
         android:textColor="#000"
         android:textSize="24sp"
         android:textStyle="bold"

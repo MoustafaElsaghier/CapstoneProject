@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,7 +60,7 @@ public class MoviesActivityFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         final boolean isTablet = getResources().getBoolean(R.bool.isTab);
 
-        layoutManager = new LinearLayoutManager(getContext());
+        layoutManager = new GridLayoutManager(getContext(), 2);
         moviesRecycler.setLayoutManager(layoutManager);
         anInterface = ApiClient.getClient("http://api.themoviedb.org/3/")
                 .create(MovieInterFace.class);
