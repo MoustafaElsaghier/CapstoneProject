@@ -41,7 +41,6 @@ public class MoviesActivityFragment extends Fragment {
     retrofit2.Call<FilmsResponse> call;
 
     MoviesAdapter moviesAdapter;
-    boolean isTablet;
 
     public MoviesActivityFragment() {
     }

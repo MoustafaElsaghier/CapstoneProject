@@ -6,7 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import elsaghier.developer.com.capstoneproject.Models.Film;
 import elsaghier.developer.com.capstoneproject.R;
@@ -17,7 +22,22 @@ import elsaghier.developer.com.capstoneproject.R;
 public class MovieDetailsActivityFragment extends Fragment {
 
     public static boolean isTab;
-    Film filmModel;
+    Film model;
+
+    @BindView(R.id.imgBack)
+    ImageView backDropPath;
+
+    @BindView(R.id.filmName)
+    TextView filmName;
+
+    @BindView(R.id.filmDate)
+    TextView filmDate;
+
+    @BindView(R.id.film_rating)
+    TextView filmRating;
+
+    @BindView(R.id.film_over_view)
+    TextView filmOverView;
 
     public MovieDetailsActivityFragment() {
     }
@@ -36,9 +56,16 @@ public class MovieDetailsActivityFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //movie_item
         if (isTab)
-            filmModel = (Film) getArguments().getSerializable("movie_item");
+            model = (Film) getArguments().getSerializable("movie_item");
         else
-            filmModel = (Film) getActivity().getIntent().getSerializableExtra("movie_item");
+            model = (Film) getActivity().getIntent().getSerializableExtra("movie_item");
+
+        filmName.setText(model.getTitle());
+        filmDate.setText(model.getReleaseDate());
+        filmRating.setText(String.valueOf(model.getVoteAverage()));
+        filmOverView.setText(model.getOverview());
+        Glide.with(this).load("http://image.tmdb.org/t/p/w185" + model.getBackdropPath()).into(backDropPath);
+
 
     }
 }
