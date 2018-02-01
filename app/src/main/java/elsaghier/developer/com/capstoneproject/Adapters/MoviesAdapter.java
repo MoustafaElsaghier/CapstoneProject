@@ -55,7 +55,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
 
                     MovieDetailsActivityFragment fragment = new MovieDetailsActivityFragment();
                     Bundle b = new Bundle();
-                    b.putSerializable("hotel_item", filmModel);
+                    b.putSerializable("movie_item", filmModel);
                     fragment.setArguments(b);
                     ((AppCompatActivity) mContext).getSupportFragmentManager()
                             .beginTransaction()
@@ -64,7 +64,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
                 } else {
 
                     Intent i = new Intent(mContext, MoviesDetailsActivity.class);
-                    i.putExtra("hotel_item", filmModel);
+                    i.putExtra("movie_item", filmModel);
                     mContext.startActivity(i);
                 }
 

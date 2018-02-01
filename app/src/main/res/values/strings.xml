@@ -34,5 +34,6 @@
     <string name="poster_image_for_film">Poster Image for Film</string>
     <string name="plain_text">Plain Text</string>
     <string name="release_date">Release Date</string>
+    <string name="to_do">To Do List</string>
 
 </resources>

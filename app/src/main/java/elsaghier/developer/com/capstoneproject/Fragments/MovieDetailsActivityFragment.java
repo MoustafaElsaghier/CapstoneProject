@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
+import elsaghier.developer.com.capstoneproject.Models.Film;
 import elsaghier.developer.com.capstoneproject.R;
 
 /**
@@ -16,6 +17,7 @@ import elsaghier.developer.com.capstoneproject.R;
 public class MovieDetailsActivityFragment extends Fragment {
 
     public static boolean isTab;
+    Film filmModel;
 
     public MovieDetailsActivityFragment() {
     }
@@ -32,6 +34,11 @@ public class MovieDetailsActivityFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //movie_item
+        if (isTab)
+            filmModel = (Film) getArguments().getSerializable("movie_item");
+        else
+            filmModel = (Film) getActivity().getIntent().getSerializableExtra("movie_item");
 
     }
 }
