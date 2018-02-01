@@ -51,6 +51,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferenceFiles.saveToSharedPreference(mContext, "film_name",filmModel.getTitle());
+
                 MovieDetailsActivityFragment.isTab = isTablet;
                 if (isTablet) {
 

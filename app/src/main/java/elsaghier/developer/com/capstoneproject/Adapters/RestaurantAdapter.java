@@ -21,6 +21,7 @@ import elsaghier.developer.com.capstoneproject.Activities.RestaurantsDetailsActi
 import elsaghier.developer.com.capstoneproject.Fragments.RestaurantsDetailsActivityFragment;
 import elsaghier.developer.com.capstoneproject.Models.RestaurantModel;
 import elsaghier.developer.com.capstoneproject.Models.RestaurantResponse;
+import elsaghier.developer.com.capstoneproject.Models.SharedPreferenceFiles;
 import elsaghier.developer.com.capstoneproject.R;
 
 /**
@@ -61,6 +62,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
             public void onClick(View view) {
 
                 RestaurantsDetailsActivityFragment.isTab =isTablet;
+                SharedPreferenceFiles.saveToSharedPreference(mContext, "rest_name",restaurant.getName());
                 if (isTablet) {
                     RestaurantsDetailsActivityFragment fragment = new RestaurantsDetailsActivityFragment();
 
