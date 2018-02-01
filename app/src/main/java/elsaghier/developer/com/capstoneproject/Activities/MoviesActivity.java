@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import elsaghier.developer.com.capstoneproject.Fragments.HotelsActivityFragment;
+import elsaghier.developer.com.capstoneproject.Fragments.MoviesActivityFragment;
 import elsaghier.developer.com.capstoneproject.R;
 
-public class HotelsActivity extends AppCompatActivity {
+public class MoviesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class HotelsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (savedInstanceState == null) {
-            HotelsActivityFragment detailFragment = new HotelsActivityFragment();
+            MoviesActivityFragment detailFragment = new MoviesActivityFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.Hpane_1, detailFragment).commit();
         }
     }

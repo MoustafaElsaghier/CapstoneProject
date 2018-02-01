@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 
 import elsaghier.developer.com.capstoneproject.R;
 
-public class HotelDetailsActivity extends AppCompatActivity {
+public class MoviesDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -67,8 +67,6 @@ public class RestaurantActivityFragment extends Fragment {
             @Override
             public void onResponse(@NonNull Call<RestaurantResponse> call, @NonNull Response<RestaurantResponse> response) {
                 hideProgressDialog();
-
-
                 adapter = new RestaurantAdapter(response.body().getRestaurants(), getContext(),isTablet);
                 hotelsRecycler.setAdapter(adapter);
             }
@@ -76,7 +74,6 @@ public class RestaurantActivityFragment extends Fragment {
             @Override
             public void onFailure(@NonNull Call<RestaurantResponse> call, @NonNull Throwable t) {
                 hideProgressDialog();
-                System.out.println("Error : " + t.getMessage());
                 Snackbar.make(view, "Error Please Try again",Snackbar.LENGTH_LONG).show();
             }
         });

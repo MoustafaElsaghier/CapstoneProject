@@ -15,36 +15,36 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import elsaghier.developer.com.capstoneproject.Activities.HotelDetailsActivity;
-import elsaghier.developer.com.capstoneproject.Fragments.HotelDetailsActivityFragment;
-import elsaghier.developer.com.capstoneproject.Models.HotelModel;
+import elsaghier.developer.com.capstoneproject.Activities.MoviesDetailsActivity;
+import elsaghier.developer.com.capstoneproject.Fragments.MovieDetailsActivityFragment;
+import elsaghier.developer.com.capstoneproject.Models.Film;
 import elsaghier.developer.com.capstoneproject.R;
 
 /**
  * Created by ELSaghier on 1/25/2018.
  */
 
-public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelHolder> {
-    private List<HotelModel> mData;
+public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolder> {
+    private List<Film> mData;
     private Context mContext;
     boolean isTablet;
 
-    public HotelsAdapter(List<HotelModel> mData, Context mContext, boolean isTablet) {
+    public MoviesAdapter(List<Film> mData, Context mContext, boolean isTablet) {
         this.mData = mData;
         this.mContext = mContext;
         this.isTablet = isTablet;
     }
 
     @Override
-    public HotelsAdapter.HotelHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MoviesAdapter.HotelHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.hotel_recyc_item, parent, false);
-        return new HotelsAdapter.HotelHolder(view);
+        return new MoviesAdapter.HotelHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(HotelsAdapter.HotelHolder holder, int position) {
+    public void onBindViewHolder(MoviesAdapter.HotelHolder holder, int position) {
 
-        final HotelModel hotelModel = mData.get(position);
+        final Film filmModel = mData.get(position);
         //TODO:: implement Hotel items and pass them to holder
        /*
         holder.setName(restaurant.getName());
@@ -59,19 +59,20 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelHolde
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MovieDetailsActivityFragment.isTab = isTablet;
                 if (isTablet) {
-                    HotelDetailsActivityFragment fragment = new HotelDetailsActivityFragment();
+                    MovieDetailsActivityFragment fragment = new MovieDetailsActivityFragment();
 
                     Bundle b = new Bundle();
-                    b.putSerializable("hotel_item", hotelModel);
+                    b.putSerializable("hotel_item", filmModel);
                     fragment.setArguments(b);
                     ((AppCompatActivity) mContext).getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.Rpane_2, fragment)
                             .commit();
                 } else {
-                    Intent i = new Intent(mContext, HotelDetailsActivity.class);
-                    i.putExtra("hotel_item", hotelModel);
+                    Intent i = new Intent(mContext, MoviesDetailsActivity.class);
+                    i.putExtra("hotel_item", filmModel);
                     mContext.startActivity(i);
                 }
 

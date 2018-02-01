@@ -68,7 +68,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.hotels_layout)
     void openHotels() {
-        Intent intent = new Intent(HomeActivity.this, HotelsActivity.class);
+        Intent intent = new Intent(HomeActivity.this, MoviesActivity.class);
         startActivity(intent);
     }
 

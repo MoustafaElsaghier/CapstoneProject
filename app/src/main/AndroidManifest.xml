@@ -50,11 +50,11 @@
             android:label="@string/title_activity_restaurants_details"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.HotelsActivity"
+            android:name=".Activities.MoviesActivity"
             android:label="@string/title_activity_hotels"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.HotelDetailsActivity"
+            android:name=".Activities.MoviesDetailsActivity"
             android:label="@string/title_activity_hotel_details"
             android:theme="@style/AppTheme.NoActionBar" />
 
