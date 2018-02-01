@@ -14,6 +14,7 @@ import com.google.android.gms.ads.MobileAds;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import elsaghier.developer.com.capstoneproject.R;
+import elsaghier.developer.com.capstoneproject.ToDoActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private AdView mAdView;
@@ -43,6 +44,11 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    @OnClick(R.id.to_do_item)
+    void openToDo(){
+        Intent intent = new Intent(HomeActivity.this, ToDoActivity.class);
+        startActivity(intent);
+    }
     @OnClick(R.id.restaurant_layout)
     void openRestaurants() {
         Intent intent = new Intent(HomeActivity.this, RestaurantActivity.class);
