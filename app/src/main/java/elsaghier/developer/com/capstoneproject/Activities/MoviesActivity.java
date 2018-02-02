@@ -17,7 +17,7 @@ public class MoviesActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         if (savedInstanceState == null) {
             MoviesActivityFragment detailFragment = new MoviesActivityFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.Mpane_1, detailFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.M_pane_1, detailFragment).commit();
         }
     }
 }

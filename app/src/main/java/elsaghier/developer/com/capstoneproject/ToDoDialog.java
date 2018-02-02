@@ -50,7 +50,7 @@ public class ToDoDialog extends Dialog {
 
     void addToRealTimeDB(String message) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+        DatabaseReference myRef = database.getReference().child("messages");
         myRef.setValue(message);
     }
 
