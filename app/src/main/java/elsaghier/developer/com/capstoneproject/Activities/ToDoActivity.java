@@ -13,6 +13,7 @@ public class ToDoActivity extends AppCompatActivity {
 
     ToDoDialog doDialog;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
