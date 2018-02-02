@@ -36,7 +36,8 @@
     <string name="title_activity_to_do">ToDoActivity</string>
     <string name="preference_file_key">sharefPrefValues</string>
     <string name="movie_name">Movie Name</string>
-    <string name="add_to_do">Add</string>
+    <string name="add_to_do">Save</string>
     <string name="add_to_my_list">add to my List</string>
+    <string name="cancel">Cancel</string>
 
 </resources>
