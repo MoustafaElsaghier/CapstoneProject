@@ -12,12 +12,12 @@ public class MoviesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hotels);
+        setContentView(R.layout.activity_movies);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (savedInstanceState == null) {
             MoviesActivityFragment detailFragment = new MoviesActivityFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.Hpane_1, detailFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Mpane_1, detailFragment).commit();
         }
     }
 }

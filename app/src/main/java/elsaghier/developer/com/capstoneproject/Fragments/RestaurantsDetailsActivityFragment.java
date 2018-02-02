@@ -37,8 +37,6 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
     TextView mItemPrice;
     @BindView(R.id.rest_detail_img)
     ImageView restaurantImg;
-    public static boolean isTab;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +53,7 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        boolean isTab = getResources().getBoolean(R.bool.isTab);
         if (isTab)
             restaurantModel = (RestaurantModel) getArguments().getSerializable("rest_item");
         else

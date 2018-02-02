@@ -12,7 +12,7 @@
         android:layout_marginBottom="4dp"
         android:background="#09C"
         android:contentDescription="@string/movie_name"
-        android:text="@string/hotel_name"
+        android:text="@string/movie_name"
         android:textColor="#fff"
         android:textSize="24sp"
         android:textStyle="bold|italic" />

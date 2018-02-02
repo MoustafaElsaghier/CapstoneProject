@@ -14,16 +14,16 @@
     <string name="logo_of_application">Logo Of Application</string>
     <string name="lorem_text">Lorem Text</string>
     <string name="image_for_item_in_the_list">Image for item in the List</string>
-    <string name="title_activity_hotels">HotelsActivity</string>
+    <string name="title_activity_hotels">Movies Activity</string>
     <string name="title_activity_restaurant">RestaurantActivity</string>
-    <string name="title_activity_hotel_details">HotelDetailsActivity</string>
+    <string name="title_activity_hotel_details">Movie Details</string>
     <string name="title_activity_restaurants_details">Restaurants Details</string>
     <string name="title_activity_home">Home Activity</string>
     <string name="restaurants">Restaurants</string>
     <string name="movies">Movies</string>
     <string name="price_range">Price Range For 2 pieces </string>
     <string name="appwidget_text">EXAMPLE</string>
-    <string name="hotel_name">Hotel Name</string>
+    <string name="hotel_name">Movie Name</string>
     <string name="restaurant_name">Restaurant Name</string>
 
     <string name="rating">Rating</string>
@@ -36,5 +36,7 @@
     <string name="title_activity_to_do">ToDoActivity</string>
     <string name="preference_file_key">sharefPrefValues</string>
     <string name="movie_name">Movie Name</string>
+    <string name="add_to_do">Add</string>
+    <string name="add_to_my_list">add to my List</string>
 
 </resources>

@@ -61,9 +61,9 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
             @Override
             public void onClick(View view) {
 
-                RestaurantsDetailsActivityFragment.isTab =isTablet;
-                SharedPreferenceFiles.saveToSharedPreference(mContext, "rest_name",restaurant.getName());
+                SharedPreferenceFiles.saveToSharedPreference(mContext, "rest_name", restaurant.getName());
                 if (isTablet) {
+
                     RestaurantsDetailsActivityFragment fragment = new RestaurantsDetailsActivityFragment();
 
                     Bundle b = new Bundle();

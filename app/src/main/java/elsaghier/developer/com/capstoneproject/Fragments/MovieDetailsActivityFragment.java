@@ -21,7 +21,6 @@ import elsaghier.developer.com.capstoneproject.R;
  */
 public class MovieDetailsActivityFragment extends Fragment {
 
-    public static boolean isTab;
     Film model;
 
     @BindView(R.id.imgBack)
@@ -55,6 +54,7 @@ public class MovieDetailsActivityFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //movie_item
+        boolean isTab = getResources().getBoolean(R.bool.isTab);
         if (isTab)
             model = (Film) getArguments().getSerializable("movie_item");
         else

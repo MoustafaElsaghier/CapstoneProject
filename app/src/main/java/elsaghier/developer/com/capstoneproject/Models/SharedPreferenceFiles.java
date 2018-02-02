@@ -13,12 +13,11 @@ public class SharedPreferenceFiles {
 
     private static SharedPreferences sharedPref;
 
-    private static SharedPreferences getSharedPreferences(Context context) {
+    private static void getSharedPreferences(Context context) {
         if (sharedPref == null) {
-            context.getSharedPreferences(
+            sharedPref = context.getSharedPreferences(
                     context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         }
-        return sharedPref;
     }
 
 
@@ -28,6 +27,7 @@ public class SharedPreferenceFiles {
     }
 
     public static String getFromSharedPreference(Context context, String key) {
+        getSharedPreferences(context);
         return sharedPref.getString(key, "No saved Value");
     }
 }

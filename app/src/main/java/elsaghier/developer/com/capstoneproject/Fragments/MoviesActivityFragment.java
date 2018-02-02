@@ -67,7 +67,7 @@ public class MoviesActivityFragment extends Fragment {
 
         call.enqueue(new Callback<FilmsResponse>() {
             @Override
-            public void onResponse(Call<FilmsResponse> call, Response<FilmsResponse> response) {
+            public void onResponse(@NonNull Call<FilmsResponse> call, @NonNull Response<FilmsResponse> response) {
                 hideProgressDialog();
                 List<Film> filmModels = response.body().getFilms();
                 moviesAdapter = new MoviesAdapter(filmModels, getContext(), isTablet);

@@ -1,4 +1,4 @@
-package elsaghier.developer.com.capstoneproject;
+package elsaghier.developer.com.capstoneproject.WidgetFiles;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -6,6 +6,7 @@ import android.content.Context;
 import android.widget.RemoteViews;
 
 import elsaghier.developer.com.capstoneproject.Models.SharedPreferenceFiles;
+import elsaghier.developer.com.capstoneproject.R;
 
 /**
  * Implementation of App Widget functionality.

@@ -47,13 +47,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
     public void onBindViewHolder(MoviesAdapter.HotelHolder holder, int position) {
 
         final Film filmModel = mData.get(position);
-        holder.setPoster(filmModel.getPosterPath());
+        holder.setPoster(filmModel.getBackdropPath());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferenceFiles.saveToSharedPreference(mContext, "film_name",filmModel.getTitle());
+                SharedPreferenceFiles.saveToSharedPreference(mContext, "film_name", filmModel.getTitle());
 
-                MovieDetailsActivityFragment.isTab = isTablet;
                 if (isTablet) {
 
                     MovieDetailsActivityFragment fragment = new MovieDetailsActivityFragment();
@@ -62,7 +61,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
                     fragment.setArguments(b);
                     ((AppCompatActivity) mContext).getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.Rpane_2, fragment)
+                            .replace(R.id.Mpane_2, fragment)
                             .commit();
                 } else {
 
@@ -94,9 +93,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
         }
 
         void setPoster(String path) {
-            Glide.with(mContext).load("http://image.tmdb.org/t/p/w185" + path)
-                    .centerCrop()
-                    .into(moivePoster);
+            if (!path.isEmpty())
+                Glide.with(mContext).load("http://image.tmdb.org/t/p/w185" + path)
+                        .centerCrop()
+                        .into(moivePoster);
         }
     }
 }
