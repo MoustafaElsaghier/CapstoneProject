@@ -9,11 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,7 +25,6 @@ public class ToDoActivity extends AppCompatActivity {
 
     @BindView(R.id.todo_recycler)
     RecyclerView messagesRV;
-    ArrayList<String> data;
 
     FirebaseDatabase database;
     DatabaseReference myRef;
@@ -37,32 +33,19 @@ public class ToDoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do);
+        ButterKnife.bind(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         doDialog = new ToDoDialog(this);
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("message");
-
-        data = new ArrayList<>();
-        ButterKnife.bind(this);
-
-    }
-
-    void recyclerInit() {
         messagesRV.setLayoutManager(new LinearLayoutManager(this));
         messagesRV.setHasFixedSize(true);
-
-
     }
 
     @OnClick(R.id.fab)
     void fabClick() {
         doDialog.show();
-    }
-
-    void readFromFireBase() {
-        ChildEventListener mChildEventListener;
-
     }
 
     @Override
@@ -88,7 +71,7 @@ public class ToDoActivity extends AppCompatActivity {
             mView = itemView;
         }
 
-        public void setRowItem(String item) {
+        void setRowItem(String item) {
             ((TextView) mView.findViewById(R.id.to_do_item_TV)).setText(item);
         }
     }
