@@ -5,10 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import elsaghier.developer.com.capstoneproject.Models.ToDoModel;
 import elsaghier.developer.com.capstoneproject.R;
 import elsaghier.developer.com.capstoneproject.ToDoDialog;
 
@@ -28,6 +30,8 @@ public class ToDoActivity extends AppCompatActivity {
     RecyclerView messagesRV;
     ArrayList<String> data;
 
+    FirebaseDatabase database;
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +40,18 @@ public class ToDoActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         doDialog = new ToDoDialog(this);
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("message");
+
         data = new ArrayList<>();
         ButterKnife.bind(this);
+
+    }
+
+    void recyclerInit() {
         messagesRV.setLayoutManager(new LinearLayoutManager(this));
-//        messagesRV.setAdapter();
+        messagesRV.setHasFixedSize(true);
+
 
     }
 
@@ -49,32 +61,22 @@ public class ToDoActivity extends AppCompatActivity {
     }
 
     void readFromFireBase() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
         ChildEventListener mChildEventListener;
-        // Read from the database
-        mChildEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-            }
+    }
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-            }
 
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
 
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
+    class ToDoViewHolder extends RecyclerView.ViewHolder {
+        View mView;
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        };
-        myRef.addChildEventListener(mChildEventListener);
+        public ToDoViewHolder(View itemView) {
+            super(itemView);
+            mView = itemView;
+        }
+
+        public void setRowItem(String item) {
+            ((TextView) mView.findViewById(R.id.to_do_item_TV)).setText(item);
+        }
     }
 }
