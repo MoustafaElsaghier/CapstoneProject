@@ -20,6 +20,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_hotel_details" />
+    <include layout="@layout/content_movie_details" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -38,7 +38,7 @@ public class ToDoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         doDialog = new ToDoDialog(this);
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("message");
+        myRef = database.getReference().child("messages");
         messagesRV.setLayoutManager(new LinearLayoutManager(this));
         messagesRV.setHasFixedSize(true);
     }
@@ -63,7 +63,7 @@ public class ToDoActivity extends AppCompatActivity {
         messagesRV.setAdapter(firebaseRecyclerAdapter);
     }
 
-    class ToDoViewHolder extends RecyclerView.ViewHolder {
+    public static class ToDoViewHolder extends RecyclerView.ViewHolder {
         View mView;
 
         public ToDoViewHolder(View itemView) {

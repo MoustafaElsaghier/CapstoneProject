@@ -7,6 +7,9 @@ package elsaghier.developer.com.capstoneproject.Models;
 public class ToDoModel {
     private String item;
 
+    public ToDoModel() {
+    }
+
     public ToDoModel(String item) {
         this.item = item;
     }

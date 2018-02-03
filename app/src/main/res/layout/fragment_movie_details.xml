@@ -148,6 +148,7 @@
             app:layout_constraintLeft_toLeftOf="@+id/textView"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintWidth_default="wrap"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1" />

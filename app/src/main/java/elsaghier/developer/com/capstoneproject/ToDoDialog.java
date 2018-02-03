@@ -15,6 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import elsaghier.developer.com.capstoneproject.Models.ProgressDialogClass;
+import elsaghier.developer.com.capstoneproject.Models.ToDoModel;
 
 /**
  * Created by ELSaghier on 2/2/2018.
@@ -46,7 +47,7 @@ public class ToDoDialog extends Dialog {
         if (m.isEmpty())
             message.setError("Text can't be empty");
         else {
-            addToRealTimeDB(m);
+            addToRealTimeDB(new ToDoModel(m));
             message.getEditText().setText("");
         }
         ProgressDialogClass.hideProgressDialog();
@@ -59,7 +60,7 @@ public class ToDoDialog extends Dialog {
         message.getEditText().setText("");
     }
 
-    private void addToRealTimeDB(String message) {
+    private void addToRealTimeDB(ToDoModel message) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference().child("messages");
         myRef.push().setValue(message);
