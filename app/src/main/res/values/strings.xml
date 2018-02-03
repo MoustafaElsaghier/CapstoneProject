@@ -39,5 +39,6 @@
     <string name="add_to_do">Save</string>
     <string name="add_to_my_list">add to my List</string>
     <string name="cancel">Cancel</string>
+    <string name="icon_for_location">icon for location</string>
 
 </resources>
