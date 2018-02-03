@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ButterKnife.bind(this);
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        MobileAds.initialize(this, getString(R.string.ad_key));
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -35,13 +35,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onAdLoaded() {
                 mAdView.setVisibility(View.VISIBLE);
-                Toast.makeText(HomeActivity.this, "Ad Loaded Successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this, R.string.success_load, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
                 mAdView.setVisibility(View.GONE);
-                Toast.makeText(HomeActivity.this, "Failed To Load Ad", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this, R.string.failed_load, Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -50,5 +50,8 @@
     <string name="login_failed">Login Failed</string>
     <string name="invalid_login_item">Incorrect Email or Password</string>
     <string name="empty_str" />
+    <string name="success_load">Ad Loaded Successful</string>
+    <string name="failed_load">Failed To Load Ad</string>
+    <string name="ad_key">ca-app-pub-3940256099942544~3347511713</string>
 
 </resources>
