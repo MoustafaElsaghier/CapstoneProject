@@ -65,7 +65,20 @@ public class ToDoActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseRecyclerAdapter<ToDoModel, ToDoViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<ToDoModel, ToDoViewHolder>(ToDoModel.class,
+                R.layout.to_do_item,
+                ToDoViewHolder.class
+                , myRef) {
+            @Override
+            protected void populateViewHolder(ToDoViewHolder viewHolder, ToDoModel model, int position) {
+                viewHolder.setRowItem(model.getItem());
+            }
+        };
+        messagesRV.setAdapter(firebaseRecyclerAdapter);
+    }
 
     class ToDoViewHolder extends RecyclerView.ViewHolder {
         View mView;
