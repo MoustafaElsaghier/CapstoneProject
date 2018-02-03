@@ -5,7 +5,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.widget.RemoteViews;
 
-import elsaghier.developer.com.capstoneproject.Models.SharedPreferenceFiles;
 import elsaghier.developer.com.capstoneproject.R;
 
 /**
@@ -18,13 +17,7 @@ public class CapastoneWidget extends AppWidgetProvider {
 
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.capastone_widget);
-        views.setTextViewText(R.id.appwidget_movieName,
-                SharedPreferenceFiles.
-                        getFromSharedPreference(context, "film_name"));
-
-        views.setTextViewText(R.id.appwidget_restaurantName,
-                SharedPreferenceFiles.
-                        getFromSharedPreference(context, "rest_name"));
+            new WidgetAsync(views, context).execute();
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
