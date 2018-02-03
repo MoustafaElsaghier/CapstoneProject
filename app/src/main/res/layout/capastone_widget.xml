@@ -13,8 +13,8 @@
         android:background="#09C"
         android:contentDescription="@string/movie_name"
         android:text="@string/movie_name"
-        android:textColor="#fff"
-        android:textSize="24sp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="22sp"
         android:textStyle="bold|italic" />
 
     <TextView
@@ -36,8 +36,8 @@
         android:background="#09C"
         android:contentDescription="@string/restaurant_name"
         android:text="@string/restaurant_name"
-        android:textColor="#fff"
-        android:textSize="24sp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="22sp"
         android:textStyle="bold|italic" />
 
     <TextView
