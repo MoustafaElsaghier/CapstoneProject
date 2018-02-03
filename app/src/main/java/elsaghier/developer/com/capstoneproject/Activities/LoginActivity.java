@@ -59,9 +59,9 @@ public class LoginActivity extends AppCompatActivity {
                     userEmail.setError("");
                 } else {
                     if (editable.toString().length() == 0)
-                        userEmail.setError("Email can't be empty");
+                        userEmail.setError(getString(R.string.email_error));
                     else
-                        userEmail.setError("inValid Email");
+                        userEmail.setError(getString(R.string.email_inValid));
                 }
             }
         });
@@ -78,9 +78,9 @@ public class LoginActivity extends AppCompatActivity {
                     userPassword.setError("");
                 } else {
                     if (editable.toString().length() == 0)
-                        userPassword.setError("Password can't be empty");
+                        userPassword.setError(getString(R.string.password_empty));
                     else
-                        userPassword.setError("Password must be at least 6 chars");
+                        userPassword.setError(getString(R.string.password_rule));
                 }
             }
         });
@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @OnClick(R.id.BTN_login)
     void login() {
-        showProgressDialog(this, "Authentication Process", "Please wait ...");
+        showProgressDialog(this, getString(R.string.auth_process), getString(R.string.wait_str));
         if (isValidEmail && isValidPassword) {
             // handle login request
             String email = userEmail.getEditText().getText().toString();
@@ -124,7 +124,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                Toast.makeText(LoginActivity.this, R.string.auth_failed,
                                         Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -144,8 +144,8 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             builder = new AlertDialog.Builder(LoginActivity.this);
         }
-        builder.setTitle("Login Failed")
-                .setMessage("Incorrect Email or Password")
+        builder.setTitle(R.string.login_failed)
+                .setMessage(R.string.invalid_login_item)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete
@@ -167,8 +167,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     void emptyFields() {
-        userEmail.getEditText().setText("");
-        userPassword.getEditText().setText("");
+        userEmail.getEditText().setText(R.string.empty_str);
+        userPassword.getEditText().setText(R.string.empty_str);
     }
 
 }
