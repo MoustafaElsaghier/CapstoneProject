@@ -47,7 +47,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
     public void onBindViewHolder(MoviesAdapter.HotelHolder holder, int position) {
 
         final Film filmModel = mData.get(position);
-        holder.setPoster(filmModel.getBackdropPath());
+        holder.setPoster(filmModel.getPosterPath());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,7 +95,9 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
         void setPoster(String path) {
             if (!path.isEmpty())
                 Glide.with(mContext).load("http://image.tmdb.org/t/p/w185" + path)
+                        .error(R.drawable.ic_movie)
                         .centerCrop()
+                        .crossFade().placeholder(R.drawable.ic_movie)
                         .into(moivePoster);
         }
     }
