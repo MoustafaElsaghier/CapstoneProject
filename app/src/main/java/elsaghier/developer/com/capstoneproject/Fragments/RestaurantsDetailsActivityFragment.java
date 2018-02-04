@@ -67,10 +67,14 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         boolean isTab = getResources().getBoolean(R.bool.isTab);
-        if (isTab)
-            restaurantModel = (RestaurantModel) getArguments().getSerializable(getString(R.string.rest_item));
-        else
-            restaurantModel = (RestaurantModel) getActivity().getIntent().getSerializableExtra(getString(R.string.rest_item));
+        if (savedInstanceState == null) {
+            if (isTab)
+                restaurantModel = (RestaurantModel) getArguments().getSerializable(getString(R.string.rest_item));
+            else
+                restaurantModel = (RestaurantModel) getActivity().getIntent()
+                        .getSerializableExtra(getString(R.string.rest_item));
+        } else
+            restaurantModel = (RestaurantModel) savedInstanceState.getSerializable(getString(R.string.rest_item));
 
         mName.setText(restaurantModel.getName());
 
