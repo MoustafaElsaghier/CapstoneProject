@@ -56,15 +56,15 @@ public class MovieDetailsActivityFragment extends Fragment {
         //movie_item
         boolean isTab = getResources().getBoolean(R.bool.isTab);
         if (isTab)
-            model = (Film) getArguments().getSerializable("movie_item");
+            model = (Film) getArguments().getSerializable(getString(R.string.film_key_pass));
         else
-            model = (Film) getActivity().getIntent().getSerializableExtra("movie_item");
+            model = (Film) getActivity().getIntent().getSerializableExtra(getString(R.string.film_key_pass));
 
         filmName.setText(model.getTitle());
         filmDate.setText(model.getReleaseDate());
         filmRating.setText(String.valueOf(model.getVoteAverage()));
         filmOverView.setText(model.getOverview());
-        Glide.with(this).load("http://image.tmdb.org/t/p/w185" + model.getBackdropPath()).into(backDropPath);
+        Glide.with(this).load(getString(R.string.movie_backdrop_URL) + model.getBackdropPath()).into(backDropPath);
 
     }
 }

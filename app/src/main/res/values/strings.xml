@@ -78,5 +78,7 @@
     <string name="zomato_key">55a1d18014dd0c0dac534c02598a3368</string>
     <string name="load_rest_detail">getting restaurants from server</string>
     <string name="load_rest">Loading List of Restaurants</string>
+    <string name="popular_rest">The most populous Restaurant.</string>
+    <string name="movie_backdrop_URL">http://image.tmdb.org/t/p/w185</string>
 
 </resources>

@@ -35,13 +35,11 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onAdLoaded() {
                 mAdView.setVisibility(View.VISIBLE);
-                Toast.makeText(HomeActivity.this, R.string.success_load, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
                 mAdView.setVisibility(View.GONE);
-                Toast.makeText(HomeActivity.this, R.string.failed_load, Toast.LENGTH_SHORT).show();
             }
         });
     }

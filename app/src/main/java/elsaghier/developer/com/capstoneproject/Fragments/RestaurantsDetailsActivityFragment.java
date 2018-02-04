@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -55,9 +54,9 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
         super.onViewCreated(view, savedInstanceState);
         boolean isTab = getResources().getBoolean(R.bool.isTab);
         if (isTab)
-            restaurantModel = (RestaurantModel) getArguments().getSerializable("rest_item");
+            restaurantModel = (RestaurantModel) getArguments().getSerializable(getString(R.string.rest_item));
         else
-            restaurantModel = (RestaurantModel) getActivity().getIntent().getSerializableExtra("rest_item");
+            restaurantModel = (RestaurantModel) getActivity().getIntent().getSerializableExtra(getString(R.string.rest_item));
 
         mName.setText(restaurantModel.getName());
 
@@ -78,12 +77,11 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
         double lng = Double.parseDouble(restaurantModel.getLocation().getLongitude());
 
         LatLng restLocation = new LatLng(lat, lng);
-        Toast.makeText(getContext(), "Map", Toast.LENGTH_SHORT).show();
 
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(restLocation, 18.0f));
         googleMap.addMarker(new MarkerOptions()
                 .title(restaurantModel.getName())
-                .snippet("The most populous Restaurant.")
+                .snippet(getString(R.string.popular_rest))
                 .position(restLocation));
 
     }
