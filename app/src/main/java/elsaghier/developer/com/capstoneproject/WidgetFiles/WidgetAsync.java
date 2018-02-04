@@ -44,6 +44,5 @@ public class WidgetAsync extends AsyncTask<Void, Void, String[]> {
         remoteViews.setTextViewText(R.id.appwidget_movieName, strings[0]);
         remoteViews.setTextViewText(R.id.appwidget_restaurantName, strings[1]);
         appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
-
     }
 }

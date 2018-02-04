@@ -69,22 +69,14 @@ public class MovieDetailsActivityFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //movie_item
         boolean isTab = getResources().getBoolean(R.bool.isTab);
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null)
             if (isTab)
                 model = (Film) getArguments().getSerializable(getString(R.string.film_key_pass));
             else
                 model = (Film) getActivity().getIntent().getSerializableExtra(getString(R.string.film_key_pass));
-        }
-        if (savedInstanceState == null) {
-            if (isTab)
-                model = (Film) getArguments().getSerializable(getString(R.string.film_key_pass));
-            else
-                model = (Film) getActivity().getIntent().getSerializableExtra(getString(R.string.film_key_pass));
-
-        } else {
-            // get object from `savedInstanceState` Bundle object
+        else
             model = (Film) savedInstanceState.getSerializable(getString(R.string.film_name));
-        }
+
         filmName.setText(model.getTitle());
         filmDate.setText(model.getReleaseDate());
         filmRating.setText(String.valueOf(model.getVoteAverage()));
