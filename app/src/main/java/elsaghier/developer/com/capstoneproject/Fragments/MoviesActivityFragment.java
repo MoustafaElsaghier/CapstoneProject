@@ -49,7 +49,7 @@ public class MoviesActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_hotels, container, false);
-        showProgressDialog(getContext(), "Loading List of Movies", "getting Movies from server");
+        showProgressDialog(getContext(), getString(R.string.loading_movies), getString(R.string.loading_movies_hint));
         ButterKnife.bind(this, view);
         return view;
     }
@@ -61,9 +61,9 @@ public class MoviesActivityFragment extends Fragment {
 
         layoutManager = new GridLayoutManager(getContext(), 2);
         moviesRecycler.setLayoutManager(layoutManager);
-        anInterface = ApiClient.getClient("http://api.themoviedb.org/3/")
+        anInterface = ApiClient.getClient(getString(R.string.api_URL))
                 .create(MovieInterFace.class);
-        call = anInterface.getPopularMovies("50afdb8a06eb4f5d7320f4f4729a993e");
+        call = anInterface.getPopularMovies(getString(R.string.api_key_movies));
 
         call.enqueue(new Callback<FilmsResponse>() {
             @Override
@@ -77,7 +77,7 @@ public class MoviesActivityFragment extends Fragment {
             @Override
             public void onFailure(Call<FilmsResponse> call, Throwable t) {
                 hideProgressDialog();
-                Snackbar.make(view, "Error Please Try again", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(view, R.string.error_messages, Snackbar.LENGTH_LONG).show();
             }
         });
 

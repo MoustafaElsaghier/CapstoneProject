@@ -68,5 +68,10 @@
     <string name="rest_name">rest_name</string>
     <string name="rest_item">rest_item</string>
     <string name="missing_data">No saved Value</string>
+    <string name="loading_movies">Loading List of Movies</string>
+    <string name="loading_movies_hint">getting Movies from server</string>
+    <string name="api_URL">http://api.themoviedb.org/3/</string>
+    <string name="api_key_movies">50afdb8a06eb4f5d7320f4f4729a993e</string>
+    <string name="error_messages">Error Please Try again</string>
 
 </resources>
