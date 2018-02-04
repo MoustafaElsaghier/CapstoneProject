@@ -73,5 +73,10 @@
     <string name="api_URL">http://api.themoviedb.org/3/</string>
     <string name="api_key_movies">50afdb8a06eb4f5d7320f4f4729a993e</string>
     <string name="error_messages">Error Please Try again</string>
+    <string name="zomata_URL">https://developers.zomato.com/api/v2.1/</string>
+    <string name="app_type">application/json</string>
+    <string name="zomato_key">55a1d18014dd0c0dac534c02598a3368</string>
+    <string name="load_rest_detail">getting restaurants from server</string>
+    <string name="load_rest">Loading List of Restaurants</string>
 
 </resources>

@@ -45,7 +45,7 @@ public class RestaurantActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        showProgressDialog(getContext(), "Loading List of Restaurants", "getting restaurants from server");
+        showProgressDialog(getContext(), getString(R.string.load_rest), getString(R.string.load_rest_detail));
         View view = inflater.inflate(R.layout.fragment_restaurant, container, false);
         ButterKnife.bind(this, view);
         return view;
@@ -59,10 +59,10 @@ public class RestaurantActivityFragment extends Fragment {
 
         layoutManager = new LinearLayoutManager(getContext());
         hotelsRecycler.setLayoutManager(layoutManager);
-        anInterface = ApiClient.getClient("https://developers.zomato.com/api/v2.1/")
+        anInterface = ApiClient.getClient(getString(R.string.zomata_URL))
                 .create(RestaurantInterface.class);
-        call = anInterface.getRestaurants("application/json",
-                "55a1d18014dd0c0dac534c02598a3368");
+        call = anInterface.getRestaurants(getString(R.string.app_type),
+                getString(R.string.zomato_key));
         call.enqueue(new Callback<RestaurantResponse>() {
             @Override
             public void onResponse(@NonNull Call<RestaurantResponse> call, @NonNull Response<RestaurantResponse> response) {
@@ -74,7 +74,7 @@ public class RestaurantActivityFragment extends Fragment {
             @Override
             public void onFailure(@NonNull Call<RestaurantResponse> call, @NonNull Throwable t) {
                 hideProgressDialog();
-                Snackbar.make(view, "Error Please Try again",Snackbar.LENGTH_LONG).show();
+                Snackbar.make(view, getString(R.string.error_messages),Snackbar.LENGTH_LONG).show();
             }
         });
 

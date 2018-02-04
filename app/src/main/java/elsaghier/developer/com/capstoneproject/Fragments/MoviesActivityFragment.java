@@ -75,7 +75,7 @@ public class MoviesActivityFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<FilmsResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<FilmsResponse> call, @NonNull Throwable t) {
                 hideProgressDialog();
                 Snackbar.make(view, R.string.error_messages, Snackbar.LENGTH_LONG).show();
             }
