@@ -65,9 +65,9 @@ public class SignUpActivity extends AppCompatActivity {
                     userEmail.setError("");
                 } else {
                     if (editable.toString().length() == 0)
-                        userEmail.setError("Email can't be empty");
+                        userEmail.setError(getString(R.string.email_error));
                     else
-                        userEmail.setError("inValid Email");
+                        userEmail.setError(getString(R.string.email_inValid));
                 }
             }
         });
@@ -86,9 +86,9 @@ public class SignUpActivity extends AppCompatActivity {
                     userPassword.setError("");
                 } else {
                     if (editable.toString().length() == 0)
-                        userPassword.setError("Email can't be empty");
+                        userPassword.setError(getString(R.string.password_empty));
                     else
-                        userPassword.setError("inValid Email");
+                        userPassword.setError(getString(R.string.password_rule));
                 }
             }
         });
@@ -105,9 +105,9 @@ public class SignUpActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
                 String pass = userPassword.getEditText().getText().toString();
                 if (matchedPasswords(editable.toString(), pass)) {
-                    userConfirmPassword.setError("");
+                    userConfirmPassword.setError(getString(R.string.empty_str));
                 } else {
-                    userConfirmPassword.setError("Password does not match the confirm password");
+                    userConfirmPassword.setError(getString(R.string.mismatch_password));
                 }
             }
         });
@@ -128,16 +128,16 @@ public class SignUpActivity extends AppCompatActivity {
         } else {
             String email = userEmail.getEditText().getText().toString();
             if (TextUtils.isEmpty(email))
-                userEmail.setError("Email can't be empty");
+                userEmail.setError(getString(R.string.email_error));
 
             String pass = userPassword.getEditText().getText().toString();
             if (TextUtils.isEmpty(pass))
-                userPassword.setError("Password can't be empty");
+                userPassword.setError(getString(R.string.password_empty));
 
             String confirmPass = userConfirmPassword.getEditText().getText().toString();
             if (TextUtils.isEmpty(confirmPass))
-                userConfirmPassword.setError("Password Conformation can't be empty");
-            showErrorDialog(this, "Valid error Fields", "please fix error in fields");
+                userConfirmPassword.setError(getString(R.string.pass_confirm));
+            showErrorDialog(this, getString(R.string.error_field), getString(R.string.hint_tofix));
         }
     }
 
@@ -176,7 +176,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     void signUpNewUser(String email, String password) {
-        showProgressDialog(this, "Signing Up", "Save data to server");
+        showProgressDialog(this, getString(R.string.signing_up), getString(R.string.save_data));
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -185,11 +185,11 @@ public class SignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(SignUpActivity.this, "Sign Up Success", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this, R.string.sign_up_success, Toast.LENGTH_SHORT).show();
 //                            updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(SignUpActivity.this, "Sign Up Failed.",
+                            Toast.makeText(SignUpActivity.this, R.string.sign_up_failed,
                                     Toast.LENGTH_SHORT).show();
 //                            updateUI(null);
                         }

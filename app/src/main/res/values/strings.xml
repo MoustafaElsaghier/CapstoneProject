@@ -53,5 +53,13 @@
     <string name="success_load">Ad Loaded Successful</string>
     <string name="failed_load">Failed To Load Ad</string>
     <string name="ad_key">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="mismatch_password">Password does not match the confirm password</string>
+    <string name="pass_confirm">Password Conformation can\'t be empty</string>
+    <string name="error_field">Valid error Fields</string>
+    <string name="hint_tofix">please fix error in fields</string>
+    <string name="signing_up">Signing Up</string>
+    <string name="save_data">Save data to server</string>
+    <string name="sign_up_success">Sign Up Success</string>
+    <string name="sign_up_failed">Sign Up Failed.</string>
 
 </resources>
