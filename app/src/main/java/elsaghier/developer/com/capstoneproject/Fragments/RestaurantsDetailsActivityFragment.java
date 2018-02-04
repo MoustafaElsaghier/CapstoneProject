@@ -50,6 +50,20 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(getString(R.string.rest_item), restaurantModel);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if (savedInstanceState != null) {
+            restaurantModel = (RestaurantModel) savedInstanceState.getSerializable(getString(R.string.rest_item));
+        }
+    }
+
+    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         boolean isTab = getResources().getBoolean(R.bool.isTab);
