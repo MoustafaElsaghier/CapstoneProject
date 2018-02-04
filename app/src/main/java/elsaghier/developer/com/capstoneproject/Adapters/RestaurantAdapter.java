@@ -61,13 +61,13 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
             @Override
             public void onClick(View view) {
 
-                SharedPreferenceFiles.saveToSharedPreference(mContext, "rest_name", restaurant.getName());
+                SharedPreferenceFiles.saveToSharedPreference(mContext, mContext.getString(R.string.rest_name), restaurant.getName());
                 if (isTablet) {
 
                     RestaurantsDetailsActivityFragment fragment = new RestaurantsDetailsActivityFragment();
 
                     Bundle b = new Bundle();
-                    b.putSerializable("rest_item", restaurant);
+                    b.putSerializable(mContext.getString(R.string.rest_item), restaurant);
                     fragment.setArguments(b);
                     ((AppCompatActivity) mContext).getSupportFragmentManager()
                             .beginTransaction()
@@ -75,7 +75,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
                             .commit();
                 } else {
                     Intent i = new Intent(mContext, RestaurantsDetailsActivity.class);
-                    i.putExtra("rest_item", restaurant);
+                    i.putExtra(mContext.getString(R.string.rest_item), restaurant);
                     mContext.startActivity(i);
                 }
             }
