@@ -28,6 +28,6 @@ public class SharedPreferenceFiles {
 
     public static String getFromSharedPreference(Context context, String key) {
         getSharedPreferences(context);
-        return sharedPref.getString(key, "No saved Value");
+        return sharedPref.getString(key, context.getString(R.string.missing_data));
     }
 }

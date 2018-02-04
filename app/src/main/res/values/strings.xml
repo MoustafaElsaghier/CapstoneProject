@@ -67,5 +67,6 @@
     <string name="img_load_URL">http://image.tmdb.org/t/p/w185</string>
     <string name="rest_name">rest_name</string>
     <string name="rest_item">rest_item</string>
+    <string name="missing_data">No saved Value</string>
 
 </resources>
