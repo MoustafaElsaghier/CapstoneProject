@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by ELSaghier on 1/25/2018.
  */
 
-public class ApiClient {
+public class ApiClientMovie {
 
     private static Retrofit retrofit = null;
 

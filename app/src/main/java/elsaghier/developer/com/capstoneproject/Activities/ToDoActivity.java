@@ -28,6 +28,8 @@ public class ToDoActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
     DatabaseReference myRef;
+    //Todo:: configurate dialog state
+    boolean isDialogOpened;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

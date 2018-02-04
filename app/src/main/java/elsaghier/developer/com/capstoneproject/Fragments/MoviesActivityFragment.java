@@ -16,7 +16,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import elsaghier.developer.com.capstoneproject.Adapters.MoviesAdapter;
-import elsaghier.developer.com.capstoneproject.ApiWork.ApiClient;
+import elsaghier.developer.com.capstoneproject.ApiWork.ApiClientMovie;
 import elsaghier.developer.com.capstoneproject.ApiWork.MovieInterFace;
 import elsaghier.developer.com.capstoneproject.Models.Film;
 import elsaghier.developer.com.capstoneproject.Models.FilmsResponse;
@@ -61,7 +61,7 @@ public class MoviesActivityFragment extends Fragment {
 
         layoutManager = new GridLayoutManager(getContext(), 2);
         moviesRecycler.setLayoutManager(layoutManager);
-        anInterface = ApiClient.getClient(getString(R.string.api_URL))
+        anInterface = ApiClientMovie.getClient(getString(R.string.api_URL))
                 .create(MovieInterFace.class);
         call = anInterface.getPopularMovies(getString(R.string.api_key_movies));
 

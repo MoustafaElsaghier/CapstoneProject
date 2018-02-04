@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import elsaghier.developer.com.capstoneproject.Adapters.RestaurantAdapter;
-import elsaghier.developer.com.capstoneproject.ApiWork.ApiClient;
+import elsaghier.developer.com.capstoneproject.ApiWork.ApiClientRestaurants;
 import elsaghier.developer.com.capstoneproject.ApiWork.RestaurantInterface;
 import elsaghier.developer.com.capstoneproject.Models.RestaurantResponse;
 import elsaghier.developer.com.capstoneproject.R;
@@ -59,7 +59,7 @@ public class RestaurantActivityFragment extends Fragment {
 
         layoutManager = new LinearLayoutManager(getContext());
         hotelsRecycler.setLayoutManager(layoutManager);
-        anInterface = ApiClient.getClient(getString(R.string.zomata_URL))
+        anInterface = ApiClientRestaurants.getClient(getString(R.string.zomata_URL))
                 .create(RestaurantInterface.class);
         call = anInterface.getRestaurants(getString(R.string.app_type),
                 getString(R.string.zomato_key));
