@@ -38,7 +38,7 @@ public class ToDoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         doDialog = new ToDoDialog(this);
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference().child("messages");
+        myRef = database.getReference().child(getString(R.string.msg));
         messagesRV.setLayoutManager(new LinearLayoutManager(this));
         messagesRV.setHasFixedSize(true);
     }

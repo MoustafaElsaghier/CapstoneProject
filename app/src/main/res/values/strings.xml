@@ -61,5 +61,9 @@
     <string name="save_data">Save data to server</string>
     <string name="sign_up_success">Sign Up Success</string>
     <string name="sign_up_failed">Sign Up Failed.</string>
+    <string name="msg">messages</string>
+    <string name="film_key_shared">film_name</string>
+    <string name="film_key_pass">movie_item</string>
+    <string name="img_load_URL">http://image.tmdb.org/t/p/w185</string>
 
 </resources>

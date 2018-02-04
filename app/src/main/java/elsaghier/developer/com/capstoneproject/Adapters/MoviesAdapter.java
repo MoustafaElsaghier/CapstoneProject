@@ -29,7 +29,7 @@ import elsaghier.developer.com.capstoneproject.R;
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolder> {
     private List<Film> mData;
     private Context mContext;
-    boolean isTablet;
+    private boolean isTablet;
 
     public MoviesAdapter(List<Film> mData, Context mContext, boolean isTablet) {
         this.mData = mData;
@@ -51,13 +51,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferenceFiles.saveToSharedPreference(mContext, "film_name", filmModel.getTitle());
+                SharedPreferenceFiles.saveToSharedPreference(mContext, mContext.getString(R.string.film_key_shared), filmModel.getTitle());
 
                 if (isTablet) {
 
                     MovieDetailsActivityFragment fragment = new MovieDetailsActivityFragment();
                     Bundle b = new Bundle();
-                    b.putSerializable("movie_item", filmModel);
+                    b.putSerializable(mContext.getString(R.string.film_key_pass), filmModel);
                     fragment.setArguments(b);
                     ((AppCompatActivity) mContext).getSupportFragmentManager()
                             .beginTransaction()
@@ -66,7 +66,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
                 } else {
 
                     Intent i = new Intent(mContext, MoviesDetailsActivity.class);
-                    i.putExtra("movie_item", filmModel);
+                    i.putExtra(mContext.getString(R.string.film_key_pass), filmModel);
                     mContext.startActivity(i);
                 }
 
@@ -94,7 +94,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.HotelHolde
 
         void setPoster(String path) {
             if (!path.isEmpty())
-                Glide.with(mContext).load("http://image.tmdb.org/t/p/w185" + path)
+                Glide.with(mContext).load(mContext.getString(R.string.img_load_URL) + path)
                         .error(R.drawable.ic_movie)
                         .centerCrop()
                         .crossFade().placeholder(R.drawable.ic_movie)
