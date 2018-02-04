@@ -17,7 +17,7 @@ public class CapastoneWidget extends AppWidgetProvider {
 
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.capastone_widget);
-            new WidgetAsync(views, context).execute();
+        new WidgetAsync(views, context,appWidgetManager, appWidgetId).execute();
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);

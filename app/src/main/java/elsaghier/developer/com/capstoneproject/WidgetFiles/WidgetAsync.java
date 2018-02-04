@@ -1,5 +1,6 @@
 package elsaghier.developer.com.capstoneproject.WidgetFiles;
 
+import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.RemoteViews;
@@ -14,11 +15,16 @@ import elsaghier.developer.com.capstoneproject.R;
 public class WidgetAsync extends AsyncTask<Void, Void, String[]> {
 
     private Context mContext;
-    RemoteViews remoteViews;
+    private RemoteViews remoteViews;
+    private AppWidgetManager appWidgetManager;
+    private int appWidgetId;
 
-    public WidgetAsync(RemoteViews remoteViews, Context mContext) {
+    WidgetAsync(RemoteViews remoteViews, Context mContext, AppWidgetManager appWidgetManager,
+                int appWidgetId) {
         this.mContext = mContext;
         this.remoteViews = remoteViews;
+        this.appWidgetId = appWidgetId;
+        this.appWidgetManager = appWidgetManager;
     }
 
     @Override
@@ -37,6 +43,7 @@ public class WidgetAsync extends AsyncTask<Void, Void, String[]> {
 
         remoteViews.setTextViewText(R.id.appwidget_movieName, strings[0]);
         remoteViews.setTextViewText(R.id.appwidget_restaurantName, strings[1]);
+        appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
 
     }
 }
