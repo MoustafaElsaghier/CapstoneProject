@@ -25,9 +25,9 @@ public class WidgetAsync extends AsyncTask<Void, Void, String[]> {
     protected String[] doInBackground(Void... strings) {
         String data[] = new String[2];
         data[0] = SharedPreferenceFiles.
-                getFromSharedPreference(mContext, "film_name");
+                getFromSharedPreference(mContext, mContext.getString(R.string.film_name));
         data[1] = SharedPreferenceFiles.
-                getFromSharedPreference(mContext, "rest_name");
+                getFromSharedPreference(mContext, mContext.getString(R.string.rest_name));
         return data;
     }
 

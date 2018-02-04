@@ -62,7 +62,8 @@ public class RestaurantsDetailsActivityFragment extends Fragment implements OnMa
 
         mAddress.setText(restaurantModel.getLocation().getAddress());
 
-        String itemPrice = String.format("%s %s", restaurantModel.getPriceRange(), restaurantModel.getCurrency());
+        String itemPrice = String.format(getString(R.string.format),
+                restaurantModel.getPriceRange(), restaurantModel.getCurrency());
         mItemPrice.setText(itemPrice);
 
         if (restaurantModel.getFeaturedImage().isEmpty())

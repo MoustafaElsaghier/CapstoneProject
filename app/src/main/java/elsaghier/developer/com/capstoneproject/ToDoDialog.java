@@ -25,11 +25,12 @@ public class ToDoDialog extends Dialog {
 
     @BindView(R.id.message_TIL)
     TextInputLayout message;
-
+    Context c;
     Button save, cancel;
 
     public ToDoDialog(@NonNull Context context) {
         super(context);
+        c = context;
     }
 
     @Override
@@ -42,13 +43,13 @@ public class ToDoDialog extends Dialog {
 
     @OnClick(R.id.save_btn)
     void addTo_RT_DB() {
-        ProgressDialogClass.showProgressDialog(getContext(), "Save data", "Sending data to server");
+        ProgressDialogClass.showProgressDialog(getContext(), c.getString(R.string.save_data_), c.getString(R.string.save_data));
         String m = message.getEditText().getText().toString();
         if (m.isEmpty())
-            message.setError("Text can't be empty");
+            message.setError(c.getString(R.string.text_empty));
         else {
             addToRealTimeDB(new ToDoModel(m));
-            message.getEditText().setText("");
+            message.getEditText().setText(c.getString(R.string.empty_str));
         }
         ProgressDialogClass.hideProgressDialog();
         dismiss();
@@ -62,7 +63,7 @@ public class ToDoDialog extends Dialog {
 
     private void addToRealTimeDB(ToDoModel message) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference().child("messages");
+        DatabaseReference myRef = database.getReference().child(c.getString(R.string.msg));
         myRef.push().setValue(message);
     }
 
