@@ -1,6 +1,7 @@
 package elsaghier.developer.com.capstoneproject.Activities;
 
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,21 +16,21 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import elsaghier.developer.com.capstoneproject.Models.ProgressDialogClass;
 import elsaghier.developer.com.capstoneproject.Models.ToDoModel;
 import elsaghier.developer.com.capstoneproject.R;
-import elsaghier.developer.com.capstoneproject.ToDoDialog;
 
 public class ToDoActivity extends AppCompatActivity {
-
-    ToDoDialog doDialog;
 
     @BindView(R.id.todo_recycler)
     RecyclerView messagesRV;
 
+    @BindView(R.id.to_do_TIL)
+    TextInputLayout message;
     FirebaseDatabase database;
     DatabaseReference myRef;
-    //Todo:: configurate dialog state
-    boolean isDialogOpened;
+
+    String retrievedMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +39,48 @@ public class ToDoActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        doDialog = new ToDoDialog(this);
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference().child(getString(R.string.msg));
         messagesRV.setLayoutManager(new LinearLayoutManager(this));
         messagesRV.setHasFixedSize(true);
+        if (savedInstanceState != null)
+        {
+            retrievedMessage = savedInstanceState.getString(getString(R.string.to_do_message));
+            message.getEditText().setText(retrievedMessage);
+        }
     }
 
-    @OnClick(R.id.fab)
-    void fabClick() {
-        doDialog.show();
+    @OnClick(R.id.save_btn)
+    void addTo_RT_DB() {
+        ProgressDialogClass.showProgressDialog(this, getString(R.string.save_data_), getString(R.string.save_data));
+        String m = message.getEditText().getText().toString();
+        if (m.isEmpty())
+            message.setError(getString(R.string.text_empty));
+        else {
+            addToRealTimeDB(new ToDoModel(m));
+            message.getEditText().setText(getString(R.string.empty_str));
+        }
+        ProgressDialogClass.hideProgressDialog();
+    }
+
+    private void addToRealTimeDB(ToDoModel message) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference().child(getString(R.string.msg));
+        myRef.push().setValue(message);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String s = message.getEditText().getText().toString();
+        outState.putString(getString(R.string.to_do_message),s);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null)
+            retrievedMessage = savedInstanceState.getString(getString(R.string.to_do_message));
     }
 
     @Override

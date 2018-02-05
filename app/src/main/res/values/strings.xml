@@ -22,8 +22,6 @@
     <string name="restaurants">Restaurants</string>
     <string name="movies">Movies</string>
     <string name="price_range">Price Range For 2 pieces </string>
-    <string name="appwidget_text">EXAMPLE</string>
-    <string name="hotel_name">Movie Name</string>
     <string name="restaurant_name">Restaurant Name</string>
 
     <string name="rating">Rating</string>
@@ -37,7 +35,6 @@
     <string name="preference_file_key">sharefPrefValues</string>
     <string name="movie_name">Movie Name</string>
     <string name="add_to_do">Save</string>
-    <string name="add_to_my_list">add to my List</string>
     <string name="cancel">Cancel</string>
     <string name="icon_for_location">icon for location</string>
     <string name="email_error">Email can\'t be empty</string>
@@ -51,8 +48,6 @@
     <string name="login_failed">Login Failed</string>
     <string name="invalid_login_item">Incorrect Email or Password</string>
     <string name="empty_str" />
-    <string name="success_load">Ad Loaded Successful</string>
-    <string name="failed_load">Failed To Load Ad</string>
     <string name="ad_key">ca-app-pub-3940256099942544~3347511713</string>
     <string name="mismatch_password">Password does not match the confirm password</string>
     <string name="pass_confirm">Password Conformation can\'t be empty</string>
@@ -84,5 +79,7 @@
     <string name="movie_backdrop_URL">http://image.tmdb.org/t/p/w185</string>
     <string name="save_data_">Save data</string>
     <string name="text_empty">Text can\'t be empty</string>
+    <string name="to_do_list">To Do List</string>
+    <string name="to_do_message">to_do_msg</string>
 
 </resources>
